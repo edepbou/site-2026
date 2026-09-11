@@ -1,0 +1,1417 @@
+/* Energy Department — gedeelde site-stijl.
+   GEGENEREERD uit Homepage.dc.html: die pagina is de bron van waarheid voor
+   alles boven de FUNDAMENT-markering. Wijzig dus eerst de inline <style> van
+   de homepage en draai daarna scripts/css.js — een regel die u hier direct
+   toevoegt, bereikt de homepage nooit.
+   Het consistentiecontract staat in FUNDAMENT.md hoofdstuk 11. */
+
+/* Energy Department webfonts.
+   SUBSTITUTION: the brand's real UI typeface could not be extracted from the
+   supplied PDF (no embedded font programs) and edepartment.nl blocks cross-origin
+   reads of its Framer stylesheet. Inter is shipped as the nearest free match to the
+   neutral grotesque used on the live site. Replace these files + the family name
+   when the real licensed font is supplied. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("./assets/fonts/inter-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("./assets/fonts/inter-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+
+:root{
+  --c-orange:#F58113; --c-white:#FFFFFF;
+  --c-green-a:#F7FDF7; --c-green-b:#E7F0E7; --c-green-c:#384438; --c-green-d:#252025;
+  --c-orange-text:#A34B00; --c-orange-hover:#DC7310; --c-orange-press:#8F4200; --c-orange-soft:#FEF3E7;
+  --c-ink:#252025; --c-ink-soft:#384438; --c-ink-muted:#5A665A;
+  --c-line:#DFE7DF; --c-line-strong:#C3CFC3;
+  --c-on-dark:#FFFFFF; --c-on-dark-soft:#DCE6DC; --c-on-dark-muted:#B4C0B4;
+  --c-line-dark:#3E4A3E;
+  --c-surface-dark-1:#252025; --c-surface-dark-2:#2F2A2A; --c-surface-dark-3:#3A3434;
+  --c-error:#B3261E; --c-error-bg:#FDECEA; --c-success:#1F6B3B; --c-success-bg:#E8F4EC;
+  --c-signal:#8FBF8F;
+  --c-white-a10:rgba(255,255,255,.10); --c-white-a16:rgba(255,255,255,.16);
+  --c-white-a07:rgba(255,255,255,.07); --c-white-a35:rgba(255,255,255,.35);
+  --c-white-a42:rgba(255,255,255,.42); --c-white-a75:rgba(255,255,255,.75);
+  --c-white-a85:rgba(255,255,255,.85); --c-white-a94:rgba(255,255,255,.94);
+  --c-scrim:rgba(37,32,32,.86); --c-pill:rgba(37,32,32,.9);
+  --c-orange-a22:rgba(245,129,19,.22); --c-orange-a00:rgba(245,129,19,0);
+  --c-orange-a14:rgba(245,129,19,.14);
+  --focus-ring:0 0 0 3px rgba(245,129,19,.30);
+
+  --font-sans:"Inter var","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fs-display:clamp(3.25rem,1rem + 7.4vw,5.75rem);
+  --fs-h2:clamp(2.125rem,1.1rem + 4.4vw,3.625rem);
+  --fs-h3:clamp(1.3125rem,1.15rem + 0.7vw,1.625rem);
+  --fs-h4:clamp(1.125rem,1.05rem + 0.3vw,1.25rem);
+  --fs-lead:clamp(1.1875rem,1rem + 0.95vw,1.5625rem);
+  --fs-body:clamp(1.0625rem,1rem + 0.25vw,1.1875rem);
+  --fs-small:0.9375rem; --fs-micro:0.8125rem;
+  --fs-stat:clamp(2.5rem,1.4rem + 2.6vw,3.5rem);
+  --lh-tight:1.04; --lh-heading:1.25; --lh-body:1.6;
+
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px;
+  --sp-6:24px; --sp-7:32px; --sp-8:40px; --sp-9:48px; --sp-10:64px;
+  --sp-11:80px; --sp-12:96px; --sp-13:128px; --sp-14:176px;
+  --sp-head:56px;
+  --container-max:1360px; --container-pad:clamp(20px,4vw,56px);
+  /* afstand van de containerrand tot de vensterrand, voor het full-bleed herobeeld */
+  --bleed:calc((100vw - min(var(--container-max), 100vw)) / 2 + var(--container-pad));
+  --header-h:64px;
+
+  --r-sm:10px; --r-md:14px; --r-lg:24px; --r-xl:32px; --r-full:999px;
+  --shadow-sm:0 1px 2px rgba(37,32,32,.05);
+  --shadow-md:0 6px 20px rgba(37,32,32,.07);
+  --shadow-lg:0 24px 60px rgba(37,32,32,.10);
+  --dur-fast:140ms; --dur-base:240ms; --dur-slow:400ms;
+  --ease-out:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + 16px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--c-white);color:var(--c-ink);font-family:var(--font-sans);
+  font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--c-orange-text);text-decoration:none}
+a:hover{color:var(--c-orange-text);text-decoration:underline;text-underline-offset:3px}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,fieldset,legend{margin:0;padding:0}
+ul,ol{list-style:none}
+fieldset{border:0;min-width:0}
+:focus-visible{outline:3px solid var(--c-orange);outline-offset:2px;border-radius:inherit}
+.on-dark :focus-visible,.on-dark:focus-visible{outline-color:var(--c-white)}
+
+.container{width:100%;max-width:var(--container-max);margin-inline:auto;padding-inline:var(--container-pad)}
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:var(--sp-4);top:-200px;z-index:100;background:var(--c-white);
+  color:var(--c-ink);padding:var(--sp-3) var(--sp-4);border-radius:var(--r-sm);
+  border:1px solid var(--c-line-strong);font-weight:600;box-shadow:var(--shadow-md)}
+.skip-link:focus{top:var(--sp-3);text-decoration:none}
+.section{padding-block:clamp(88px,9vw,144px)}
+.section--band{padding-block:clamp(48px,5vw,72px)}
+.section--dark{padding-block:clamp(88px,9vw,144px)}
+.bg-white{background:var(--c-white)} .bg-green-a{background:var(--c-green-a)}
+.bg-green-b{background:var(--c-green-b)} .bg-dark-1{background:var(--c-surface-dark-1)}
+.bg-dark-c{background:var(--c-green-c)}
+.bandline{border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line)}
+/* Gestapeld onder 1024px; de twee kolommen komen uit de mediaquery verderop. */
+.split{display:grid;gap:var(--sp-10)}
+
+.t-display{font-size:var(--fs-display);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.028em}
+/* Een enkel lang woord — "energiebesparingsplicht" is op 58px al 693px breed —
+   kan met overflow-wrap:normal niet breken en loopt buiten zijn kolom. Dat is
+   het vangnet hieronder. hyphens:auto stond hier ook, maar voorkwam niets:
+   dezelfde regelval, geen overflow, en het brak "verschillende" af midden in
+   het woord. Alleen op smalle schermen, waar een samenstelling breder wordt
+   dan de hele kolom, blijft hyphenering zinvol. */
+.t-h1,.t-h2,.t-h3,.t-h4{overflow-wrap:break-word}
+@media (max-width:480px){
+  .t-h1,.t-h2,.t-h3,.t-h4{hyphens:auto}
+}
+.t-h2{font-size:var(--fs-h2);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.028em}
+.t-h3{font-size:var(--fs-h3);font-weight:600;line-height:var(--lh-heading);letter-spacing:-.015em}
+.t-lead{font-size:var(--fs-lead);line-height:1.45;max-width:56ch}
+.t-body{font-size:var(--fs-body);line-height:var(--lh-body);max-width:62ch}
+.t-small{font-size:var(--fs-small);line-height:1.5}
+.t-micro{font-size:var(--fs-micro);line-height:1.5}
+.t-eyebrow{font-size:var(--fs-micro);font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
+.ink-soft{color:var(--c-ink-soft)} .ink-muted{color:var(--c-ink-muted)}
+.on-dark-soft{color:var(--c-on-dark-soft)} .on-dark-muted{color:var(--c-on-dark-muted)}
+.head-center{text-align:center;max-width:22ch;margin-inline:auto}
+.lead-center{text-align:center;max-width:56ch;margin-inline:auto}
+.head-gap{margin-bottom:var(--sp-head)}
+.head-to-lead{margin-bottom:var(--sp-5)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);
+  min-height:56px;padding:17px 30px;border:none;border-radius:var(--r-md);
+  font-size:1rem;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;text-align:center;
+  transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out)}
+.btn:hover{text-decoration:none}
+.btn--primary{background:var(--c-orange);color:var(--c-green-d)}
+.btn--primary:hover{background:var(--c-orange-hover);color:var(--c-green-d);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn--primary:active{background:var(--c-orange-press);color:var(--c-white);transform:translateY(0);box-shadow:none}
+.btn--secondary{background:transparent;color:var(--c-ink-soft);border:1.5px solid var(--c-ink-soft)}
+.btn--secondary:hover{background:var(--c-green-b);color:var(--c-ink-soft)}
+.btn--secondary.on-dark{color:var(--c-white);border-color:var(--c-white-a42)}
+.btn--secondary.on-dark:hover{background:var(--c-white-a10);color:var(--c-white);border-color:var(--c-white-a75)}
+.btn--sm{min-height:44px;padding:var(--sp-3) var(--sp-5);font-size:var(--fs-small);border-radius:12px}
+.btn .arrow,.link-arrow .arrow{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arrow,.link-arrow:hover .arrow{transform:translateX(4px)}
+.btn-row{display:grid;gap:var(--sp-3);grid-template-columns:minmax(0,1fr)}
+
+/* Mag afbreken: sectorspecifieke anchorteksten zijn soms langer dan hun kolom.
+   De pijl blijft aan de laatste regel hangen doordat het een flex-item is. */
+.link-arrow{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px;color:var(--c-orange-text);
+  font-weight:600;font-size:1rem;line-height:1.3;text-decoration:none}
+.link-arrow:hover{text-decoration:underline;text-underline-offset:3px;color:var(--c-orange-text)}
+.on-dark .link-arrow{color:var(--c-orange)}
+.on-dark .link-arrow:hover{color:var(--c-orange)}
+.link-arrow--sm{font-size:var(--fs-small)}
+
+.chip{display:inline-flex;align-items:center;gap:var(--sp-2);background:var(--c-green-b);
+  color:var(--c-ink-soft);font-size:var(--fs-micro);font-weight:600;
+  padding:var(--sp-2) var(--sp-4);border-radius:var(--r-full)}
+.chip__dot{width:6px;height:6px;border-radius:var(--r-full);background:var(--c-orange);flex:none}
+.badge{display:inline-block;background:var(--c-orange);color:var(--c-green-d);font-size:11px;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px var(--sp-2);
+  border-radius:var(--r-full);line-height:1.5}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;
+  transition:background-color var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+.is-scrolled .site-header{background:var(--c-white-a85);backdrop-filter:blur(12px) saturate(140%);
+  -webkit-backdrop-filter:blur(12px) saturate(140%);border-bottom-color:var(--c-line);box-shadow:var(--shadow-sm)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .is-scrolled .site-header{background:var(--c-white)}
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-6);height:var(--header-h)}
+.nav-desktop,.nav-actions{display:none;align-items:center;gap:var(--sp-1)}
+.nav-actions{gap:var(--sp-3)}
+.nav-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:var(--sp-2) var(--sp-3);
+  border-radius:var(--r-sm);font-size:16px;font-weight:500;color:var(--c-ink-soft);text-decoration:none;
+  background:transparent;border:0;cursor:pointer;
+  transition:color var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out)}
+.nav-link:hover{color:var(--c-ink);background:var(--c-green-a);text-decoration:none}
+.nav-item{position:relative}
+.nav-link .chev{transition:transform var(--dur-fast) var(--ease-out)}
+.nav-item:hover .nav-link .chev,.nav-link[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:340px;background:var(--c-white);
+  border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-3);box-shadow:var(--shadow-lg);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),visibility var(--dur-fast)}
+.nav-item:hover .dropdown,.dropdown[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown__item{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  padding:var(--sp-3);border-radius:var(--r-sm);text-decoration:none;color:var(--c-ink);
+  transition:background-color var(--dur-fast) var(--ease-out)}
+.dropdown__item:hover{background:var(--c-green-a);text-decoration:none;color:var(--c-ink)}
+.dropdown__title{font-size:15px;font-weight:600;display:block}
+.dropdown__sub{font-size:13px;color:var(--c-ink-muted);display:block;margin-top:2px}
+.burger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border:1px solid var(--c-line-strong);border-radius:var(--r-full);background:var(--c-white);cursor:pointer;color:var(--c-ink)}
+/* Twee statische iconen, gewisseld met CSS. Een {{ hole }} in een href rendert
+   tijdens het streamen als href="" en dat is een mislukte resource-load. */
+.burger__ico{display:block}
+.burger__ico--open{display:none}
+.burger[aria-expanded="true"] .burger__ico--dicht{display:none}
+.burger[aria-expanded="true"] .burger__ico--open{display:block}
+.mobile-panel{position:fixed;inset:var(--header-h) 0 0 0;z-index:49;background:var(--c-white);
+  overflow-y:auto;padding:var(--sp-6) 0 var(--sp-11)}
+.mobile-link{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  min-height:56px;padding:var(--sp-3) 0;border-bottom:1px solid var(--c-line);
+  font-size:20px;font-weight:600;color:var(--c-ink);text-decoration:none}
+.mobile-sub{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  min-height:48px;padding:var(--sp-2) 0 var(--sp-2) var(--sp-4);border-bottom:1px solid var(--c-line);
+  font-size:var(--fs-small);color:var(--c-ink-soft);text-decoration:none}
+.mobile-link:hover,.mobile-sub:hover{color:var(--c-orange-text);text-decoration:none}
+
+/* ── 1 Hero ── */
+.hero{padding-block:var(--sp-12);overflow:clip}
+.hero-grid{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.hero-photo-wrap{position:relative;order:2}
+.hero-photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:60% 42%;border-radius:var(--r-xl)}
+.hero-scrim{position:absolute;inset:auto 0 0 0;height:45%;pointer-events:none;
+  border-radius:0 0 var(--r-xl) var(--r-xl);
+  background:linear-gradient(to top,rgba(37,32,32,.34),rgba(37,32,32,0))}
+.hero-actions{order:3}
+.hero-h1 br{display:none}
+.trust-strip{position:absolute;left:var(--sp-6);bottom:var(--sp-6);
+  display:inline-flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap;
+  background:var(--c-white-a94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:var(--r-md);padding:14px var(--sp-5);color:var(--c-ink)}
+.stars{display:flex;gap:2px;color:var(--c-orange)}
+.dot-sep{width:4px;height:4px;border-radius:var(--r-full);background:var(--c-line-strong);flex:none}
+
+/* ── 2 Logoband ── */
+.trust-grid{display:grid;gap:var(--sp-6);grid-template-columns:minmax(0,1fr);align-items:center}
+.trust-label{font-size:13px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--c-ink-muted);max-width:200px}
+.logogrid{display:grid;grid-auto-flow:column;gap:var(--sp-8);align-items:center;justify-items:center;
+  overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:var(--sp-2)}
+.logomark{display:flex;align-items:center;color:var(--c-ink);scroll-snap-align:start;
+  filter:grayscale(1);opacity:.5;transition:opacity var(--dur-base) var(--ease-out)}
+.logomark:hover{opacity:.85}
+.logomark svg{height:22px;width:auto}
+
+/* ── Paginahero met beeld ──
+   Eén patroon voor élke pagina met een herobeeld, gemodelleerd op de
+   homepage-hero hierboven: de tekst staat op een egale ondergrond en het beeld
+   vult de volle hoogte van de hero en loopt rechts uit het venster.
+
+   Nooit tekst over het beeld. Dat is een merkregel, en het maakt de
+   leesbaarheid onafhankelijk van welke foto er komt te staan, geen
+   verdonkerende gradient nodig, geen text-safe area in de briefing. */
+/* overflow:clip is niet cosmetisch maar noodzakelijk: --bleed rekent met 100vw
+   (inclusief scrollbar) terwijl de layoutviewport smaller is, dus de negatieve
+   marge schiet een halve scrollbarbreedte door. Zelfde reden als bij .hero
+   en .edge hierboven. */
+.section--hero{overflow:clip}
+.pagehero{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.pagehero__copy,.pagehero__actions{min-width:0}
+.pagehero__photo{position:relative;order:2;min-width:0}
+.pagehero__img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;
+  object-position:50% 45%;border-radius:var(--r-xl);background:var(--c-green-b)}
+
+/* Sectiebeeld: dezelfde behandeling als het herobeeld, maar binnen een
+   inhoudssectie. Voor pagina's zonder .pagehero, zo hoeft een hero niet te
+   worden herbouwd om één beeld te kunnen plaatsen. */
+.secfoto{display:block;width:100%;height:auto;max-width:760px;aspect-ratio:3/2;
+  object-fit:cover;object-position:50% 45%;border-radius:var(--r-xl);
+  background:var(--c-green-b);margin-bottom:var(--sp-9)}
+
+/* ── 3 Energiecheck ── */
+.panel{background:var(--c-white);border:1px solid var(--c-line);border-radius:var(--r-xl);
+  padding:var(--sp-6)}
+.q-label{font-size:17px;font-weight:600;color:var(--c-ink);margin-bottom:var(--sp-4)}
+.q-num{color:var(--c-orange-text)}
+.q-row{display:flex;flex-wrap:wrap;gap:10px}
+.chip--choice{display:inline-flex;align-items:center;gap:10px;
+  min-height:46px;padding:0 var(--sp-5);border-radius:var(--r-full);background:var(--c-white);
+  border:1.5px solid var(--c-line-strong);color:var(--c-ink);font-size:16px;font-weight:500;cursor:pointer;
+  transition:background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.chip--choice:hover{border-color:var(--c-ink-soft);background:var(--c-green-a)}
+.chip--choice[data-checked="true"]{background:var(--c-green-b);border-color:var(--c-green-c);color:var(--c-green-c)}
+.chip--choice:focus-visible{box-shadow:var(--focus-ring)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* Twee zwevende vraagkaarten links, een live resultaatkaart rechts.
+   De badge verspringt naar oranje zodra de vraag beantwoord is; de
+   resultaatrijen komen gestaffeld in beeld. */
+.chk{display:grid;gap:var(--sp-9);align-items:start}
+.chk-ask{display:flex;flex-direction:column;gap:var(--sp-5)}
+.chk-intro{display:flex;flex-direction:column;gap:var(--sp-5);margin-bottom:var(--sp-2)}
+.chk-intro .hl{font-style:normal;color:var(--c-green-c)}
+
+/* Drie geruststellingen op één regel: tijd, uitkomst, privacy. */
+/* Wikkelt als geheel naar de volgende regel; de labels zelf breken nooit. */
+.chk-assure{display:flex;flex-wrap:wrap;gap:var(--sp-5) var(--sp-7);margin-top:var(--sp-2)}
+.chk-assure li{display:flex;gap:var(--sp-3);align-items:center}
+.chk-assure svg{box-sizing:border-box;width:38px;height:38px;padding:9px;flex:none;
+  border-radius:var(--r-full);background:var(--c-green-b);color:var(--c-ink-soft)}
+.chk-assure strong{display:block;font-size:14px;font-weight:600;color:var(--c-ink);line-height:1.3;
+  white-space:nowrap}
+.chk-assure span span{display:block;font-size:12px;color:var(--c-ink-muted);line-height:1.4;margin-top:2px;
+  white-space:nowrap}
+
+.qcard__hint{margin-left:auto;font-size:13px;color:var(--c-ink-muted);white-space:nowrap;flex:none}
+
+/* Beeld met de resultaatkaart die er als inzet in ligt.
+   De bronfoto is 610px breed. In één kolom is de sectie breder dan dat, dus
+   daar vervalt het beeld en loopt de resultaatkaart mee met de vraagkaarten:
+   opschalen of een ingesprongen eiland zijn beide slechter. */
+.chk-vis{position:relative;display:flex;flex-direction:column}
+.chk-photo{display:none;position:relative;border-radius:var(--r-xl);overflow:hidden;
+  background:var(--c-green-b)}
+.chk-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.chk-vis .rcard{position:relative;z-index:1;margin:0}
+
+/* Leadmagneet als één rustige regel onder de check. */
+.mailcard{display:grid;gap:var(--sp-6);margin-top:var(--sp-11);background:var(--c-white);
+  border:1px solid var(--c-line);border-radius:var(--r-lg);padding:clamp(20px,2.4vw,32px)}
+.mailcard__ico{width:48px;height:48px;flex:none;border-radius:var(--r-full);
+  background:var(--c-green-b);color:var(--c-ink-soft);display:grid;place-items:center}
+.mailcard__copy{display:flex;flex-direction:column;gap:var(--sp-2);min-width:0}
+.mailcard__t{font-size:19px;font-weight:600;color:var(--c-ink);line-height:1.3;letter-spacing:-.012em}
+.mailcard__form{display:grid;gap:var(--sp-3);align-content:start}
+.mailcard__row{display:grid;gap:var(--sp-3)}
+.qcard{background:var(--c-white);border:1px solid var(--c-line);border-radius:var(--r-lg);
+  padding:var(--sp-6);box-shadow:var(--shadow-sm);
+  transition:border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+
+.qcard__hd{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-2) var(--sp-3);margin-bottom:var(--sp-5)}
+.qcard__n{width:30px;height:30px;flex:none;border-radius:var(--r-full);display:grid;place-items:center;
+  background:var(--c-green-b);color:var(--c-ink-muted);font-size:14px;font-weight:700;
+  transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)}
+.qcard[data-done="true"] .qcard__n{background:var(--c-green-c);color:var(--c-white)}
+.qcard__q{flex:1;min-width:0;font-size:17px;font-weight:600;color:var(--c-ink);line-height:1.3}
+.chk-prog{display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-5) var(--sp-6);
+  background:var(--c-white);border:1px solid var(--c-line);border-radius:var(--r-lg)}
+.chk-prog__track{flex:1;height:5px;border-radius:var(--r-full);background:var(--c-green-b);overflow:hidden}
+.chk-prog__fill{display:block;height:100%;width:0;border-radius:var(--r-full);background:var(--c-green-c);
+  transition:width var(--dur-slow) var(--ease-out)}
+.chk-prog__n{flex:none;font-size:var(--fs-micro);font-weight:600;color:var(--c-ink-muted);
+  font-variant-numeric:tabular-nums}
+
+.rcard{background:var(--c-white);border:1px solid var(--c-line);border-radius:var(--r-lg);
+  padding:clamp(20px,2.2vw,28px);box-shadow:var(--shadow-md)}
+.rrow{display:flex;gap:var(--sp-4);align-items:center;padding-block:var(--sp-4);
+  border-bottom:1px solid var(--c-line);text-decoration:none;color:var(--c-ink)}
+.rrow:first-of-type{padding-top:0}
+.rrow:hover{text-decoration:none}
+.js .rrow{opacity:0;transform:translateY(8px);animation:rise var(--dur-base) var(--ease-out) forwards}
+.rrow__ico{width:44px;height:44px;flex:none;border-radius:var(--r-full);background:var(--c-green-b);
+  color:var(--c-orange-text);display:grid;place-items:center}
+.rrow__body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rrow__t{font-size:16px;font-weight:600;line-height:1.3;
+  transition:color var(--dur-fast) var(--ease-out)}
+.rrow__l{font-size:14px;color:var(--c-ink-muted);line-height:1.45}
+.rrow__chev{flex:none;color:var(--c-ink-muted);
+  transition:transform var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.rrow:hover .rrow__t{color:var(--c-orange-text)}
+.rrow:hover .rrow__chev{transform:translateX(3px);color:var(--c-orange-text)}
+.rcard__foot{padding-top:var(--sp-6)}
+
+@media (min-width:640px){
+  .mailcard__row{grid-template-columns:minmax(0,1fr) auto;align-items:start}
+}
+@media (min-width:1000px){
+  .chk{grid-template-columns:minmax(0,1.15fr) minmax(0,.95fr);gap:var(--sp-9)}
+  /* Beeld bovenaan uitgelijnd met de kop, kaart over de onderrand.
+     Een vol portretkader zou deze liggende foto (610×320) te ver
+     opschalen en juist het pand wegsnijden. */
+  .chk-vis{align-self:start}
+  .chk-photo{display:block;aspect-ratio:4/3}
+  .chk-vis .rcard{margin:-140px var(--sp-6) 0}
+  .mailcard{grid-template-columns:48px minmax(0,1.05fr) minmax(0,.95fr);align-items:start;gap:var(--sp-7)}
+
+}
+
+@media (min-width:1200px){
+  /* De track bepaalt de gerenderde breedte, dus een breder fotoslot vraagt ook
+     een bredere track, een max-width op het kind rekt een vaste track niet op.
+     Pas vanaf 1120px, want daaronder zou een vaste 600px-track de flexibele
+     tekstkolom onder de 400px duwen en de h1 over vijf regels breken. */
+  .sec-head
+}
+
+@media (min-width:1280px){
+  /* Specificiteit 0,2,0, hoger dan de basisregels op .hub-grid (0,1,0), zodat
+     de uitkomst niet afhangt van waar dit blok bij hergenereren in ed-site.css
+     belandt. Zelfde reden als bij .cardstack .card. */
+  .hub-grid.hub-grid--vijf{grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-7)}
+}
+
+/* ── 4 Diensten ── */
+.services{display:grid;grid-template-columns:minmax(0,1fr)}
+.service{position:relative;display:flex;flex-direction:column;padding-block:28px;border-top:1px solid var(--c-line)}
+.service:first-child{border-top:0;padding-top:0}
+.service__icon{color:var(--c-ink);margin-bottom:var(--sp-6)}
+.service__title{font-size:21px;font-weight:600;line-height:1.25;color:var(--c-ink);
+  transition:color var(--dur-fast) var(--ease-out)}
+.service__sub{font-size:17px;color:var(--c-ink-soft);line-height:1.45;margin-top:var(--sp-3)}
+.service:hover .service__title{color:var(--c-orange-text)}
+.service .link-arrow{margin-top:auto;padding-top:var(--sp-7)}
+.service__link::after{content:"";position:absolute;inset:0}
+
+/* ── 5 EDGE ──
+   Links de belofte, rechts het productbeeld dat rechts uit de container loopt.
+   De randen van het beeld zijn in het bestand zelf naar transparant verlopen,
+   zodat er geen naad met de sectieachtergrond ontstaat. */
+.edge{overflow:clip}
+.edge-grid{display:grid;gap:var(--sp-9);grid-template-columns:minmax(0,1fr);align-items:center}
+.edge-mark{font-size:26px;font-weight:800;letter-spacing:.06em;color:var(--c-white);line-height:1}
+.edge-mark sup{font-size:11px;font-weight:700;letter-spacing:0;vertical-align:super}
+.edge-h{font-size:clamp(2.125rem,1.15rem + 3.4vw,3.75rem);font-weight:800;line-height:1.05;
+  letter-spacing:-.035em;color:var(--c-white);margin-top:var(--sp-8);text-wrap:pretty}
+.edge-h br{display:none}
+.edge-h .hl{color:var(--c-orange)}
+.edge-sub{font-size:clamp(1.0625rem,.95rem + .5vw,1.375rem);line-height:1.45;
+  color:var(--c-on-dark-soft);margin-top:var(--sp-6);max-width:30ch}
+.edge-cta{display:flex;flex-wrap:wrap;gap:var(--sp-4) var(--sp-7);align-items:center;
+  margin-top:var(--sp-9)}
+.edge-textlink{display:inline-flex;align-items:center;gap:var(--sp-3);min-height:56px;
+  font-size:16px;font-weight:600;color:var(--c-white);text-decoration:none;
+  box-shadow:inset 0 -1.5px 0 var(--c-white-a35)}
+.edge-textlink:hover{color:var(--c-white);text-decoration:none;box-shadow:inset 0 -1.5px 0 var(--c-white)}
+.edge-textlink .arrow{transition:transform var(--dur-fast) var(--ease-out)}
+.edge-textlink:hover .arrow{transform:translateX(4px)}
+.edge-feats{display:flex;flex-wrap:wrap;gap:var(--sp-6) 0;
+  margin-top:var(--sp-11);padding-top:var(--sp-8);border-top:1px solid var(--c-line-dark)}
+.edge-feat{display:flex;flex-direction:column;gap:var(--sp-4);padding-inline:var(--sp-7)}
+.edge-feat:first-child{padding-left:0}
+.edge-feat + .edge-feat{border-left:1px solid var(--c-line-dark)}
+.edge-feat svg{color:var(--c-orange);flex:none}
+.edge-feat span{font-size:17px;font-weight:700;color:var(--c-white);line-height:1.25;max-width:10ch}
+/* Nooit boven de natuurlijke breedte van 818px: opschalen maakt de
+   dashboardtekst in de tablet zacht. De rechterrand sluit altijd aan op de
+   vensterrand, zodat de gloed het beeld uit loopt in plaats van te worden
+   afgesneden; de linkerrand is in het bestand al verlopen. */
+.edge-shot{max-width:818px;margin-left:auto;margin-right:calc(-1 * var(--container-pad))}
+.edge-shot img{display:block;width:100%;height:auto}
+
+/* ── 6 Bewijs ──
+   Boven: portret met citaat naast de belofte. Daaronder één uitgelicht citaat
+   als strook, en daarna de overige klantverhalen als rijen in één kaart. */
+.proof-top{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr);align-items:center}
+.proof-photo-wrap{position:relative;margin:0}
+.proof-photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;
+  object-position:62% 26%;border-radius:var(--r-xl)}
+.proof-badge{position:absolute;top:var(--sp-5);left:var(--sp-5);display:inline-flex;align-items:center;
+  gap:var(--sp-3);background:var(--c-white-a94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:var(--r-md);padding:10px var(--sp-4);box-shadow:var(--shadow-sm)}
+.proof-badge svg{color:var(--c-green-c);flex:none}
+.proof-badge strong{display:block;font-size:14px;font-weight:700;color:var(--c-ink);line-height:1.25}
+.proof-badge span span{display:block;font-size:12px;color:var(--c-ink-muted);line-height:1.3}
+.proof-quote{position:absolute;left:var(--sp-5);right:var(--sp-5);bottom:var(--sp-5);max-width:360px;
+  background:var(--c-surface-dark-1);border-radius:var(--r-lg);padding:var(--sp-6);box-shadow:var(--shadow-md)}
+.proof-quote__mark{display:block;font-size:34px;line-height:.7;color:var(--c-orange);margin-bottom:var(--sp-3)}
+.proof-quote blockquote{font-size:19px;font-weight:600;line-height:1.35;color:var(--c-white);
+  letter-spacing:-.012em}
+.proof-quote__rule{display:block;width:40px;height:2px;background:var(--c-orange);
+  border-radius:var(--r-full);margin-block:var(--sp-5)}
+.proof-quote__wie{display:block;font-size:13px;line-height:1.5;color:var(--c-on-dark-muted)}
+
+.proof-eyebrow{display:flex;align-items:center;gap:var(--sp-4);font-size:var(--fs-micro);
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--c-ink-muted)}
+.proof-eyebrow i{display:block;width:40px;height:2px;background:var(--c-orange);
+  border-radius:var(--r-full);flex:none}
+.proof-h{font-size:var(--fs-h2);font-weight:700;line-height:1.12;
+  letter-spacing:-.03em;color:var(--c-ink);margin-top:var(--sp-6);max-width:22ch;text-wrap:pretty}
+.proof-big{font-size:clamp(2.25rem,1.4rem + 2.6vw,3.25rem);font-weight:700;line-height:1.05;
+  letter-spacing:-.035em;color:var(--c-ink);margin-top:var(--sp-8);font-variant-numeric:tabular-nums}
+.proof-big-l{font-size:var(--fs-lead);color:var(--c-ink-soft);margin-top:var(--sp-2)}
+.proof-wins{display:flex;flex-wrap:wrap;gap:var(--sp-5) var(--sp-7);margin-top:var(--sp-8)}
+.proof-win{display:flex;align-items:center;gap:var(--sp-4)}
+.proof-win i{width:48px;height:48px;flex:none;border-radius:var(--r-full);background:var(--c-green-b);
+  color:var(--c-green-c);display:grid;place-items:center}
+.proof-win span{font-size:15px;font-weight:600;color:var(--c-ink);line-height:1.3;max-width:9ch}
+
+.lead-strip{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4) var(--sp-6);
+  margin-top:var(--sp-10);background:var(--c-green-b);border-radius:var(--r-lg);
+  padding:var(--sp-6);text-decoration:none;color:var(--c-ink)}
+.lead-strip:hover{text-decoration:none}
+.avatar{width:48px;height:48px;flex:none;border-radius:var(--r-full);background:var(--c-white);
+  color:var(--c-green-c);display:grid;place-items:center;font-size:14px;font-weight:700;
+  letter-spacing:.02em}
+.lead-strip__body{flex:1;min-width:220px;display:flex;flex-direction:column;gap:var(--sp-2)}
+.lead-strip__q{font-size:clamp(1.125rem,1rem + .5vw,1.375rem);font-weight:600;line-height:1.35;
+  letter-spacing:-.015em;transition:color var(--dur-fast) var(--ease-out)}
+.lead-strip__m{font-size:var(--fs-small);color:var(--c-ink-muted);line-height:1.45}
+.lead-strip__cta{display:inline-flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-small);
+  font-weight:600;color:var(--c-orange-text);white-space:nowrap}
+.lead-strip__cta .arrow{transition:transform var(--dur-fast) var(--ease-out)}
+.lead-strip:hover .lead-strip__q{color:var(--c-orange-text)}
+.lead-strip:hover .lead-strip__cta .arrow{transform:translateX(4px)}
+
+.stories{margin-top:var(--sp-5);background:var(--c-white);border:1px solid var(--c-line);
+  border-radius:var(--r-lg);padding:clamp(20px,2.4vw,32px)}
+.stories-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-3) var(--sp-6);
+  justify-content:space-between;margin-bottom:var(--sp-4)}
+.storylist{display:flex;flex-direction:column}
+.storyrow{display:grid;gap:var(--sp-1) var(--sp-5);grid-template-columns:44px minmax(0,1fr) 24px;
+  align-items:stretch;padding-block:var(--sp-5);border-top:1px solid var(--c-line);
+  color:var(--c-ink);text-decoration:none}
+.storyrow__meta,.storyrow__kop,.storyrow__wie{display:flex;flex-direction:column;justify-content:center}
+.storyrow:hover{text-decoration:none}
+.storyrow__ico{grid-column:1;grid-row:1 / -1;align-self:center;width:44px;height:44px;border-radius:var(--r-full);
+  background:var(--c-green-b);color:var(--c-green-c);display:grid;place-items:center}
+.storyrow__meta{grid-column:2;font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--c-ink-muted);line-height:1.35}
+/* Eigen klasse in plaats van een descendant-selector: de runtime wikkelt elke
+   {{ hole }} in een span, die een `.storyrow__meta span`-regel óók zou treffen
+   en dan de eyebrow-opmaak van de sector platslaat. */
+.storyrow__plaats{display:block;letter-spacing:.02em;text-transform:none;font-weight:400;
+  font-size:13px;margin-top:2px}
+.storyrow__kop{grid-column:2;font-size:17px;font-weight:600;line-height:1.35;letter-spacing:-.012em;
+  transition:color var(--dur-fast) var(--ease-out)}
+.storyrow__wie{grid-column:2;font-size:13px;color:var(--c-ink-muted);line-height:1.45}
+.storyrow .arrow{grid-column:3;grid-row:1 / -1;align-self:center;color:var(--c-ink-muted);
+  transition:transform var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.storyrow:hover .storyrow__kop{color:var(--c-orange-text)}
+.storyrow:hover .arrow{transform:translateX(4px);color:var(--c-orange-text)}
+
+/* ── 7 Werkwijze ──
+   Vier stappen als doorlopende tijdlijn: elke stap noemt wat het kost aan tijd
+   en wat u eraan overhoudt. Daaronder één kaart met wat het oplevert. */
+.flow{position:relative;display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.flowstep{position:relative;display:flex;flex-direction:column;gap:var(--sp-3);padding-left:60px}
+.flowstep__m{position:absolute;left:0;top:0;z-index:1;width:40px;height:40px;
+  border-radius:var(--r-full);background:var(--c-white);border:1.5px solid var(--c-line-strong);
+  color:var(--c-ink);display:grid;place-items:center;font-size:15px;font-weight:700;
+  font-variant-numeric:tabular-nums}
+.flowstep:not(:last-child)::before{content:"";position:absolute;left:20px;top:46px;bottom:-32px;
+  width:1px;background:var(--c-line-strong)}
+/* Wit, net als .flowstep__m: de sectie staat zelf op Green B, dus een
+   Green B-chip zou onzichtbaar zijn. */
+.flowchip{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  background:var(--c-white);color:var(--c-green-c);border-radius:var(--r-full);
+  padding:5px var(--sp-3);font-size:12px;font-weight:700;letter-spacing:.02em}
+.flowchip svg{flex:none}
+.flowstep__t{font-size:19px;font-weight:600;color:var(--c-ink);line-height:1.3;letter-spacing:-.015em}
+.flowstep__out{display:flex;gap:10px;align-items:flex-start;
+  font-size:var(--fs-small);font-weight:600;color:var(--c-ink);line-height:1.45}
+.flowstep__out svg{color:var(--c-orange-text);flex:none;margin-top:3px}
+
+.result{margin-top:var(--sp-11);background:var(--c-white);border:1px solid var(--c-line);
+  border-radius:var(--r-lg);padding:clamp(20px,2.4vw,32px)}
+.result__hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-2) var(--sp-5);
+  justify-content:space-between;margin-bottom:var(--sp-6)}
+.chart-line{stroke-dasharray:1;stroke-dashoffset:1}
+.chart-line[data-drawn="1"]{transition:stroke-dashoffset 900ms var(--ease-out);stroke-dashoffset:0}
+.chart-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--sp-4);
+  font-size:13px;color:var(--c-ink-muted);text-align:center;line-height:1.4}
+
+/* ── 8 Actualiteiten ── */
+.newsgrid{display:flex;flex-direction:column}
+.card{position:relative;display:grid;gap:var(--sp-2) var(--sp-7);grid-template-columns:minmax(0,1fr);
+  padding-block:var(--sp-7);border-top:1px solid var(--c-line)}
+.card__badge{grid-column:1;align-self:start;font-size:var(--fs-small);font-weight:700;
+  color:var(--c-orange-text);font-variant-numeric:tabular-nums;letter-spacing:0;text-transform:none;
+  background:transparent;padding:0;border-radius:0;margin:0}
+.card__title{grid-column:1;font-size:21px;font-weight:600;line-height:1.25;
+  letter-spacing:-.015em;color:var(--c-ink)}
+.card__sub{grid-column:1;font-size:16px;color:var(--c-ink-soft);line-height:1.5;max-width:52ch}
+.card__link{grid-column:1;margin-top:var(--sp-3)}
+.card__link::after{content:"";position:absolute;inset:0}
+
+/* ── 9 Kennisband ── */
+.know-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-6);margin-bottom:var(--sp-7)}
+.know-row{display:grid;grid-template-columns:1fr 24px;align-items:center;gap:var(--sp-4);
+  min-height:64px;padding-block:var(--sp-3);border-top:1px solid var(--c-line);
+  color:var(--c-ink);text-decoration:none}
+.know-row:hover{color:var(--c-orange-text);text-decoration:none}
+.know-date{font-size:14px;color:var(--c-ink-muted);font-variant-numeric:tabular-nums}
+.know-title{font-size:19px;font-weight:600;line-height:1.3;overflow:hidden;text-overflow:ellipsis}
+.know-row .arrow{transition:transform var(--dur-fast) var(--ease-out)}
+.know-row:hover .arrow{transform:translateX(4px)}
+
+/* ── 10 Intake ── */
+.form-card{background:var(--c-white);color:var(--c-ink);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--shadow-lg)}
+.progress{height:6px;background:var(--c-line);border-radius:var(--r-full);overflow:hidden}
+.progress__fill{display:block;height:100%;background:var(--c-orange);border-radius:var(--r-full);
+  transition:width 380ms var(--ease-out)}
+.step-body{min-height:420px;display:flex;flex-direction:column}
+.step-body[hidden]{display:none}
+.form-actions{display:flex;gap:var(--sp-3);margin-top:auto;padding-top:var(--sp-6);flex-wrap:wrap}
+.field{display:block;margin-bottom:var(--sp-5)}
+.field__label{display:block;font-size:15px;font-weight:600;margin-bottom:6px}
+.field__hint{display:block;font-size:14px;color:var(--c-ink-muted);margin-bottom:var(--sp-2)}
+.field__control{width:100%;height:52px;padding:14px var(--sp-4);font-size:16px;background:var(--c-white);
+  border:1px solid var(--c-line-strong);border-radius:var(--r-sm);color:var(--c-ink);
+  transition:border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out)}
+textarea.field__control{height:auto;min-height:96px;line-height:1.5;resize:vertical}
+.field__control:focus{border-color:var(--c-ink-soft);box-shadow:var(--focus-ring);outline:none}
+.field__control[aria-invalid="true"]{border:2px solid var(--c-error)}
+.field__error{display:flex;align-items:flex-start;gap:6px;margin-top:var(--sp-2);font-size:14px;color:var(--c-error)}
+.field__ok{display:block;margin-top:6px;font-size:14px;color:var(--c-success);font-weight:600}
+.cbchip{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:46px;padding:var(--sp-3) var(--sp-5);
+  background:var(--c-white);border:1.5px solid var(--c-line-strong);border-radius:var(--r-full);
+  font-size:var(--fs-small);font-weight:500;cursor:pointer;position:relative;
+  transition:background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.cbchip:hover{border-color:var(--c-ink-soft);background:var(--c-green-a)}
+.cbchip input{position:absolute;opacity:0;width:1px;height:1px}
+.cbchip .chip-check{width:18px;height:18px;flex:none;opacity:0;transition:opacity var(--dur-fast) var(--ease-out)}
+.cbchip:has(input:checked){background:var(--c-green-c);border-color:var(--c-green-c);color:var(--c-white)}
+.cbchip:has(input:checked) .chip-check{opacity:1}
+.cbchip:has(input:focus-visible){outline:3px solid var(--c-orange);outline-offset:2px}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.adviser{display:flex;flex-direction:column;gap:var(--sp-5);margin-top:var(--sp-11);
+  padding-top:var(--sp-7);border-top:1px solid var(--c-line-dark)}
+.adviser__portrait{width:88px;height:110px;flex:none;object-fit:cover;object-position:50% 22%;
+  border-radius:var(--r-md)}
+.adviser__body{display:flex;flex-direction:column;gap:var(--sp-2);min-width:0}
+.adviser__quote{font-size:18px;line-height:1.45;color:var(--c-white);font-weight:500;text-wrap:pretty}
+.adviser__contact{display:flex;flex-direction:column;gap:var(--sp-1);margin-top:var(--sp-3);
+  padding-top:var(--sp-4);border-top:1px solid var(--c-white-a16)}
+.adviser__tel{display:inline-flex;align-items:center;gap:var(--sp-2);color:var(--c-white);
+  font-size:20px;font-weight:600;text-decoration:none;width:fit-content}
+.adviser__tel:hover{color:var(--c-white);text-decoration:underline;text-underline-offset:3px}
+
+/* ── 11 FAQ ── */
+.faq{max-width:880px;margin-inline:auto}
+.faq__item{border-bottom:1px solid var(--c-line)}
+.faq__item:first-child{border-top:1px solid var(--c-line)}
+.faq__q{position:relative;display:block;padding:28px 56px 28px 0;font-size:20px;font-weight:600;
+  color:var(--c-ink);cursor:pointer;list-style:none}
+.faq__q::-webkit-details-marker{display:none}
+.faq__q:hover,.faq__q:focus-visible{color:var(--c-orange-text)}
+.faq__chev{position:absolute;right:0;top:50%;margin-top:-12px;color:var(--c-ink-soft);
+  transition:transform var(--dur-base) var(--ease-out)}
+.faq__item[open] .faq__chev{transform:rotate(180deg)}
+.faq__a{padding-bottom:28px;max-width:68ch;color:var(--c-ink-soft)}
+
+/* ── Footer ── */
+.site-footer{background:var(--c-green-d);color:var(--c-on-dark-soft);padding-block:var(--sp-12)}
+.footer-grid{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.footer-title{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:.08em;
+  color:var(--c-on-dark-muted);margin-bottom:var(--sp-4);font-weight:600}
+.footer-link{display:inline-flex;align-items:center;gap:6px;padding-block:10px;font-size:15px;
+  color:var(--c-on-dark-soft);text-decoration:none}
+.footer-link:hover{color:var(--c-orange);text-decoration:underline;text-underline-offset:3px}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  margin-top:var(--sp-11);padding-top:var(--sp-7);border-top:1px solid var(--c-line-dark)}
+
+.mobile-cta{position:fixed;inset:auto 0 0 0;z-index:60;background:var(--c-white-a94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--c-line);
+  padding:var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom));
+  opacity:0;visibility:hidden;transition:opacity var(--dur-base) var(--ease-out),visibility var(--dur-base)}
+.mobile-cta[data-show="true"]{opacity:1;visibility:visible}
+.mobile-cta .btn{width:100%}
+
+.js [data-reveal]{opacity:0;transform:translateY(14px)}
+.js [data-reveal][data-in="1"]{opacity:1;transform:none;
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+
+@media (min-width:768px){
+  :root{--header-h:76px}
+  .storyrow{grid-template-columns:44px 200px minmax(0,1.25fr) minmax(0,.9fr) 24px}
+  .storyrow__meta{grid-column:2;grid-row:1}
+  .storyrow__kop{grid-column:3;grid-row:1}
+  .storyrow__wie{grid-column:4;grid-row:1}
+  .storyrow{column-gap:var(--sp-4)}
+  .storyrow__kop,.storyrow__wie{border-left:1px solid var(--c-line);padding-left:var(--sp-5)}
+  .storyrow .arrow{grid-column:5;grid-row:1}
+  .lead-strip__cta{border-left:1px solid var(--c-line-strong);padding-left:var(--sp-6)}
+  .btn-row{grid-template-columns:auto auto;justify-content:start}
+  .trust-grid{grid-template-columns:220px minmax(0,1fr);gap:var(--sp-9)}
+  .logogrid{grid-auto-flow:row;grid-template-columns:repeat(6,minmax(0,1fr));overflow:visible;padding-bottom:0}
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service{border-top:0;padding-block:0}
+  .services > .service:nth-child(n+3){padding-top:var(--sp-9)}
+  .services > .service:nth-child(even){border-left:1px solid var(--c-line);padding-left:var(--sp-8)}
+  .services > .service:nth-child(odd){padding-right:var(--sp-8)}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* De horizontale variant werkt alleen op volle containerbreedte. Staat de
+     kaart in een meerkoloms raster, dan wordt 180px + inhoud te breed en
+     wordt de titel tot enkele pixels samengeperst, vandaar de uitsluiting
+     via .cardstack, met specificiteit 0,2,0 zodat de bronorde niet meespeelt. */
+  .card{grid-template-columns:180px minmax(0,1fr) auto;align-items:baseline}
+  .cardstack .card{grid-template-columns:minmax(0,1fr);align-items:stretch}
+  .cardstack .card__badge,
+  .cardstack .card__title,
+  .cardstack .card__sub,
+  .cardstack .card__link{grid-column:1;grid-row:auto}
+  .card__badge{grid-row:1;grid-column:1}
+  .card__title{grid-row:1;grid-column:2}
+  .card__sub{grid-row:2;grid-column:2}
+  .card__link{grid-row:1;grid-column:3;margin-top:0;white-space:nowrap}
+  .adviser{flex-direction:row;align-items:flex-start;gap:var(--sp-6)}
+  .mobile-cta{display:none}
+  .know-row{grid-template-columns:110px 1fr 24px}
+  .panel{padding:var(--sp-9)}
+  .form-card{padding:var(--sp-9)}
+}
+@media (min-width:1024px){
+  /* Het beeld begint vlak onder de header en vult de hele hero; de tekstkolom
+     brengt zijn eigen ruimte mee. Zelfde opzet als .hero hierboven. */
+  .section--hero{padding-block:0}
+  .pagehero{grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);column-gap:64px;row-gap:0}
+  .pagehero__copy{grid-column:1;grid-row:1;align-self:end;padding-top:var(--sp-11)}
+  .pagehero__actions{grid-column:1;grid-row:2;align-self:start;margin-top:var(--sp-8);
+    padding-bottom:var(--sp-11)}
+  .pagehero__photo{grid-column:2;grid-row:1 / span 2;order:0;align-self:stretch;
+    margin-right:calc(-1 * var(--bleed))}
+  .pagehero__img{aspect-ratio:auto;height:100%;min-height:520px;
+    border-radius:var(--r-xl) 0 0 var(--r-xl)}
+
+  .hero{padding-block:0}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:72px;row-gap:0}
+  .hero-copy{grid-column:1;grid-row:1;align-self:end;padding-top:var(--sp-12)}
+  .hero-actions{grid-column:1;grid-row:2;order:0;align-self:start;margin-top:var(--sp-8);padding-bottom:112px}
+  .hero-photo-wrap{grid-column:2;grid-row:1 / span 2;order:0;align-self:stretch;
+    margin-right:calc(-1 * var(--bleed))}
+  .hero-photo{aspect-ratio:auto;height:100%;min-height:620px;object-position:58% 46%;
+    border-radius:var(--r-xl) 0 0 var(--r-xl)}
+  .hero-scrim{border-radius:0 0 0 var(--r-xl)}
+  .trust-strip{left:var(--sp-8);bottom:var(--sp-8)}
+  .hero-h1 br{display:block}
+  .split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px;align-items:center}
+  .split--57{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .services{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .services > .service{padding-inline:var(--sp-8);padding-top:0}
+  .services > .service:first-child{padding-left:0}
+  .services > .service:last-child{padding-right:0}
+  .services > .service + .service{border-left:1px solid var(--c-line)}
+  .services > .service:nth-child(n+3){padding-top:0}
+  .services > .service:nth-child(odd){padding-right:var(--sp-8)}
+  .footer-grid{grid-template-columns:3fr 2fr 2fr 2fr 3fr}
+  .nav-desktop,.nav-actions{display:flex}
+  .burger,.mobile-panel{display:none}
+}
+@media (max-width:767px){
+  body{padding-bottom:84px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .chart-line{stroke-dashoffset:0}
+  .opt-mask-path{stroke-dashoffset:0}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FUNDAMENT · onderdelen die op elke pagina hergebruikt worden.
+   Zie FUNDAMENT.md voor de bijbehorende richtlijnen (CRO, Cialdini, SEO).
+   ══════════════════════════════════════════════════════════════════ */
+
+@keyframes ed-fade{from{opacity:0}to{opacity:1}}
+@keyframes ed-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ── Sectorkiezer ──
+   Eén witte schil met links de sectorlijst en rechts het sectorpaneel.
+   Alles binnen de schil is vlak; alleen de schil zelf heeft een rand. */
+.sec-shell{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-6);
+  background:var(--c-white);border:1px solid var(--c-line);
+  border-radius:var(--r-xl);padding:clamp(16px,1.8vw,24px)}
+.sec-side{display:flex;flex-direction:column;gap:var(--sp-5);min-width:0}
+.sec-rail{display:flex;gap:var(--sp-2);min-width:0;overflow-x:auto;scrollbar-width:none;
+  scroll-snap-type:x proximity;padding-bottom:var(--sp-2)}
+.sec-rail::-webkit-scrollbar{display:none}
+.sec-tab{display:inline-flex;align-items:center;gap:var(--sp-3);flex:none;min-height:48px;
+  padding:var(--sp-3) var(--sp-5);border:1px solid var(--c-line);border-radius:var(--r-md);
+  background:var(--c-white);color:var(--c-ink-soft);font-size:var(--fs-small);font-weight:600;
+  cursor:pointer;white-space:nowrap;scroll-snap-align:start;text-align:left;
+  transition:background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.sec-tab:hover{background:var(--c-green-a);border-color:var(--c-line-strong)}
+.sec-tab__ico{color:var(--c-ink-muted);flex:none}
+.sec-tab__chev{display:none;margin-left:auto;color:var(--c-ink-muted);flex:none}
+.sec-tab[data-on="true"]{background:var(--c-green-b);border-color:var(--c-green-b);color:var(--c-ink)}
+.sec-tab[data-on="true"] .sec-tab__ico,.sec-tab[data-on="true"] .sec-tab__chev{color:var(--c-green-c)}
+.sec-promo{display:none;flex-direction:column;gap:var(--sp-3);margin-top:auto;
+  background:var(--c-green-a);border-radius:var(--r-md);padding:var(--sp-5)}
+.sec-promo svg{color:var(--c-green-c)}
+
+.sec-panel{display:flex;flex-direction:column;gap:var(--sp-5);min-width:0;
+  animation:ed-fade var(--dur-base) var(--ease-out) both}
+/* Kop van het sectorpaneel: kop links, sectorfoto rechts. Dit is géén
+   heroschil, die is .pagehero. Contact gebruikte .sec-head wél als hero met
+   een eigen breekpunt (1200 tegen 1024) en een eigen gap; die is omgezet naar
+   .pagehero, waarna --wide kon vervallen. Zie les 28 in SITEPLAN.md. */
+.sec-head{display:grid;gap:var(--sp-5)}
+.sec-head__top{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);align-items:baseline;
+  justify-content:space-between}
+.sec-photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/2;background:var(--c-green-b);
+  max-width:300px}
+.sec-photo img{display:block;width:100%;height:100%;object-fit:cover}
+
+.sec-plichten{display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+.plicht{display:inline-flex;align-items:center;gap:var(--sp-3);white-space:nowrap;min-height:48px;
+  padding:0 var(--sp-5);border-radius:var(--r-md);background:var(--c-green-b);color:var(--c-ink);
+  font-size:var(--fs-small);font-weight:600}
+.plicht svg{color:var(--c-ink-muted);flex:none}
+.plicht[data-off="false"]{background:var(--c-orange-soft);color:var(--c-orange-text)}
+.plicht[data-off="false"] svg{color:var(--c-orange-text)}
+
+.sec-cards{display:grid;gap:var(--sp-4)}
+.seccard{display:flex;flex-direction:column;gap:var(--sp-5);background:var(--c-white);
+  border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-6)}
+.seccard__hd{display:flex;align-items:center;gap:var(--sp-3);font-size:17px;font-weight:600;
+  color:var(--c-ink);line-height:1.3}
+.seccard__hd svg{color:var(--c-ink);flex:none}
+
+/* ── Maatregelen: genummerde regels met besparing en terugverdientijd ── */
+.mlist{display:flex;flex-direction:column}
+.mrow{display:flex;align-items:center;gap:var(--sp-4);padding-block:var(--sp-4);
+  border-top:1px solid var(--c-line);text-decoration:none;color:var(--c-ink)}
+.mrow:first-child{border-top:0;padding-top:0}
+.mrow:hover{text-decoration:none}
+.mrow__n{width:30px;height:30px;flex:none;border-radius:var(--r-full);background:var(--c-green-b);
+  color:var(--c-ink-soft);display:grid;place-items:center;font-size:13px;font-weight:700;
+  font-variant-numeric:tabular-nums}
+.mrow__ico{color:var(--c-green-c);flex:none}
+.mrow__body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.mrow__name{font-size:15px;font-weight:600;line-height:1.3;text-wrap:pretty;
+  transition:color var(--dur-fast) var(--ease-out)}
+.mrow__sub{font-size:12px;color:var(--c-ink-muted);line-height:1.4;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow__chev{flex:none;color:var(--c-ink-muted);
+  transition:transform var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.mrow:hover .mrow__name{color:var(--c-orange-text)}
+.mrow:hover .mrow__chev{transform:translateX(3px);color:var(--c-orange-text)}
+
+/* ── Donut + KPI (grafiekbibliotheek uit het merkbeeld) ── */
+.donut{display:flex;align-items:center;gap:var(--sp-5);flex-wrap:wrap}
+/* Het middenlabel staat als HTML over de donut: {{ }} binnen <svg><text>
+   levert een <span> in de SVG-namespace op en rendert dan niet. */
+.donut__ring{position:relative;flex:none;margin-inline:auto;width:136px;height:136px}
+.donut__svg{display:block}
+.donut__mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1px;pointer-events:none;text-align:center}
+.donut__mid-v{font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--c-ink);line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.donut__mid-e{font-size:12px;font-weight:600;color:var(--c-ink);line-height:1.1}
+.donut__mid-l{font-size:10px;color:var(--c-ink-muted);line-height:1.1}
+.donut__legend{display:flex;flex-direction:column;gap:var(--sp-3);flex:1;min-width:128px}
+.dleg{display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-small);color:var(--c-ink-soft)}
+.dleg__sw{width:10px;height:10px;border-radius:var(--r-full);flex:none}
+.dleg__n{margin-left:auto;font-weight:600;color:var(--c-ink);font-variant-numeric:tabular-nums}
+.kpi-grid{display:flex;flex-direction:column;gap:var(--sp-4)}
+.kpi{display:flex;gap:var(--sp-4);align-items:flex-start;background:var(--c-green-a);
+  border-radius:var(--r-md);padding:var(--sp-5)}
+.kpi svg{color:var(--c-green-c);flex:none;margin-top:3px}
+.kpi__v{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--c-ink);
+  line-height:1.15;font-variant-numeric:tabular-nums}
+.kpi__l{display:block;font-size:13px;color:var(--c-ink-muted);margin-top:3px;line-height:1.4}
+
+/* ── Deadlinebanner ── */
+.sec-deadline{display:flex;gap:var(--sp-4);align-items:center;background:var(--c-orange-soft);
+  border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);text-decoration:none}
+.sec-deadline:hover{text-decoration:none}
+.sec-deadline__ico{color:var(--c-orange-text);flex:none}
+.sec-deadline__body{flex:1;min-width:0}
+.sec-deadline__q{display:block;font-size:16px;font-weight:700;color:var(--c-orange-text);line-height:1.35}
+.sec-deadline__a{display:block;font-size:15px;color:var(--c-orange-text);line-height:1.45;margin-top:2px}
+.sec-deadline__a strong{font-weight:700}
+.sec-deadline .arrow{flex:none;color:var(--c-orange-text);
+  transition:transform var(--dur-fast) var(--ease-out)}
+.sec-deadline:hover .arrow{transform:translateX(4px)}
+
+/* ── Sectorgids ── */
+.gidscard{display:grid;gap:var(--sp-5);align-items:center;background:var(--c-white);
+  border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-6)}
+.gidscard__img{border-radius:var(--r-md);overflow:hidden;background:var(--c-green-a)}
+.gidscard__img img{display:block;width:100%;height:auto}
+.gidscard__cta{display:flex;flex-direction:column;gap:var(--sp-3);align-items:flex-start}
+
+.sec-links{display:flex;flex-wrap:wrap;gap:var(--sp-4) var(--sp-6);
+  padding-top:var(--sp-5);border-top:1px solid var(--c-line)}
+/* Het huidige item in een kernlinkrij is geen link meer maar een
+   <span aria-current>: zelfde vorm, andere kleur. Oranje betekent op deze
+   site "hier handelen"; "u bent hier" is inkkleur. */
+.sec-links a,
+.sec-links span[aria-current]{display:inline-flex;align-items:center;gap:var(--sp-3);
+  font-size:var(--fs-small);font-weight:600;text-decoration:none;white-space:nowrap}
+.sec-links a{color:var(--c-orange-text)}
+.sec-links span[aria-current]{color:var(--c-ink)}
+.sec-links a:hover{text-decoration:underline;text-underline-offset:3px}
+.sec-links .lead-ico{color:var(--c-ink-muted);flex:none}
+.kpi__v{display:block;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--c-ink);line-height:1.15}
+.kpi__l{display:block;font-size:var(--fs-micro);color:var(--c-ink-muted);margin-top:4px;line-height:1.4}
+
+/* ── Leadmagneet: donkere aanbodkaart ── */
+.gate{display:flex;flex-wrap:wrap;gap:var(--sp-5) var(--sp-8);align-items:center;
+  justify-content:space-between;margin-top:var(--sp-9);padding-top:var(--sp-6);
+  border-top:1px solid var(--c-line-strong)}
+.gate__body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.gate__title{font-size:var(--fs-h4);font-weight:600;line-height:1.3;letter-spacing:-.01em;color:var(--c-ink)}
+.gate__sub{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55;max-width:62ch}
+
+/* ── Downloadkaarten ── */
+.dl-grid{display:grid;gap:var(--sp-8);grid-template-columns:1fr}
+/* Kale kolom met haarlijn, hetzelfde patroon als de dienstenkolommen,    bewust geen kaart, dus geen ronding of vulling. */
+.dl{display:flex;flex-direction:column;gap:var(--sp-4);width:100%;text-align:left;cursor:pointer;
+  background:transparent;border:0;border-top:1px solid var(--c-line-strong);border-radius:0;
+  padding:var(--sp-7) 0 0;color:inherit}
+.dl:hover .dl__title{color:var(--c-orange-text)}
+.dl:hover .dl__foot{text-decoration:underline;text-underline-offset:3px}
+.dl__ico{display:block;color:var(--c-orange-text)}
+.dl__type{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-ink-muted)}
+.dl__title{font-size:var(--fs-h4);font-weight:600;line-height:1.3;letter-spacing:-.01em;color:var(--c-ink);
+  transition:color var(--dur-fast) var(--ease-out)}
+.dl__sub{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55}
+.dl__foot{margin-top:auto;display:flex;align-items:center;gap:6px;color:var(--c-orange-text);
+  font-weight:600;font-size:var(--fs-small)}
+
+/* ── E-mailgate (dialog) ── */
+.gate-scrim{position:fixed;inset:0;z-index:80;background:var(--c-scrim);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:grid;place-items:center;padding:var(--sp-4);animation:ed-fade var(--dur-base) var(--ease-out) both}
+.gate-card{position:relative;width:100%;max-width:560px;max-height:calc(100vh - 32px);overflow:auto;
+  background:var(--c-white);border-radius:var(--r-lg);padding:clamp(24px,3vw,40px);
+  box-shadow:var(--shadow-lg);animation:ed-rise var(--dur-base) var(--ease-out) both}
+.gate-close{position:absolute;top:var(--sp-4);right:var(--sp-4);width:44px;height:44px;border:0;
+  background:transparent;color:var(--c-ink-muted);border-radius:var(--r-full);display:grid;place-items:center;cursor:pointer}
+.gate-close:hover{background:var(--c-green-b);color:var(--c-ink)}
+.gate-list{display:flex;flex-direction:column;gap:var(--sp-2);margin:var(--sp-5) 0 var(--sp-6)}
+.gate-list li{display:flex;gap:var(--sp-3);align-items:flex-start;font-size:var(--fs-small);color:var(--c-ink-soft)}
+.gate-trust{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-5);margin-top:var(--sp-5);
+  font-size:var(--fs-micro);color:var(--c-ink-muted)}
+.gate-trust span{display:flex;align-items:center;gap:6px}
+
+/* ── Compacte e-mailcapture (één regel) ── */
+.mini{display:grid;gap:var(--sp-3);margin-top:var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--c-line)}
+.mini__row{display:grid;gap:var(--sp-3)}
+
+/* ── Autoriteitsstrip ── */
+
+/* ── Interne-linkhub ── */
+.dropdown--wide{width:min(600px,92vw)}
+@media (min-width:720px){
+  .dropdown--wide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
+  .dropdown--wide .dropdown__all{grid-column:1 / -1}
+}
+.dropdown__all{border-top:1px solid var(--c-line);margin-top:var(--sp-2);padding-top:var(--sp-3)}
+
+/* ══════════════════════════════════════════════════════════════════
+   GEDEELDE COMPONENTEN · gebruikt door de dienst- en sectorpagina's.
+   Deze klassen horen hier omdat ed-site.css uit dit bestand wordt
+   gegenereerd: wat hier niet staat, bestaat op geen enkele pagina.
+   ══════════════════════════════════════════════════════════════════ */
+.t-h4{font-size:var(--fs-h4);font-weight:600;line-height:1.3;letter-spacing:-.012em;color:var(--c-ink)}
+
+/* Eén uitgelicht klantcitaat, in de flow. Geen kader: de oranje streep
+   en de witruimte dragen het. */
+.bigquote{font-size:clamp(1.375rem,1.05rem + 1.1vw,1.875rem);font-weight:600;line-height:1.3;
+  letter-spacing:-.022em;color:var(--c-ink);max-width:30ch;text-wrap:pretty}
+.bigquote::before{content:"";display:block;width:40px;height:2px;background:var(--c-orange);
+  border-radius:var(--r-full);margin-bottom:var(--sp-6)}
+.bigquote__wie{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5);
+  margin-top:var(--sp-6);font-size:var(--fs-small);color:var(--c-ink-muted);line-height:1.5}
+
+/* Waarop u ons kunt afrekenen: vier regels, geen kaarten. */
+.cert-list{display:grid;gap:var(--sp-5) var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.cert-item{display:flex;gap:var(--sp-4);align-items:flex-start;font-size:var(--fs-small);
+  color:var(--c-ink-soft);line-height:1.55}
+.cert-item svg{box-sizing:border-box;width:44px;height:44px;padding:11px;flex:none;
+  border-radius:var(--r-full);background:var(--c-green-b);color:var(--c-green-c)}
+.proof-split{height:1px;background:var(--c-line);margin-block:var(--sp-10)}
+
+/* Genummerde stappen. De homepage gebruikt hiervoor .flow met een doorlopende
+   tijdlijn; op de dienstpagina's staan de stappen naast elkaar zonder lijn,
+   omdat daar vijf stappen in één rij moeten passen. */
+.steps{display:grid;gap:var(--sp-7);grid-template-columns:minmax(0,1fr);margin-top:var(--sp-head)}
+.step{display:flex;flex-direction:column;gap:var(--sp-3);padding-top:var(--sp-5);
+  border-top:1px solid var(--c-line-strong)}
+.js .step[data-reveal]{opacity:0;transform:translateY(10px);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+.js .step[data-reveal][data-in="1"]{opacity:1;transform:none}
+.step__num{display:block;font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;
+  color:var(--c-ink-muted);font-variant-numeric:tabular-nums}
+.step__title{font-size:19px;font-weight:600;color:var(--c-ink);line-height:1.3;letter-spacing:-.015em}
+.step__sub{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55;max-width:40ch}
+
+/* Opsomming met icoon. Voor losse lijsten buiten een .prose-blok. */
+.proof-points{display:flex;flex-direction:column;gap:var(--sp-4)}
+.proof-point{display:flex;gap:var(--sp-3);align-items:flex-start;line-height:1.55;
+  color:var(--c-ink-soft)}
+
+/* Filterknoppen. Zelfde pil als .chip--choice. De actieve staat volgt
+   `aria-current` (voor een <a>, dat is een navigatie) én `aria-pressed` (voor
+   een <button>, dat is een toggle), de CSS-hook moet meebewegen met welk
+   element de filter is, anders is de actieve tab visueel niet te zien. */
+.filterbar{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.filter{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 var(--sp-5);
+  border-radius:var(--r-full);background:var(--c-white);border:1.5px solid var(--c-line-strong);
+  color:var(--c-ink);font-size:16px;font-weight:500;cursor:pointer;
+  transition:background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.filter:hover{background:var(--c-green-b);border-color:var(--c-green-c)}
+.filter[aria-pressed="true"],
+.filter[aria-current]{background:var(--c-green-b);border-color:var(--c-green-c);color:var(--c-green-c);font-weight:600}
+
+/* Kop van een blok met een actie ernaast. */
+.stories-bar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:var(--sp-4) var(--sp-6)}
+
+/* Klein resultaatlabel in een citaat. */
+.res-chip{display:inline-flex;align-items:center;font-size:var(--fs-micro);font-weight:600;
+  color:var(--c-green-c);background:var(--c-green-b);border-radius:var(--r-full);padding:5px var(--sp-3)}
+
+/* Naam en rol onder een citaat. */
+.story__naam{display:block;font-size:15px;font-weight:600;color:var(--c-ink);line-height:1.3}
+.story__rol{display:block;font-size:13px;color:var(--c-ink-muted);line-height:1.4;margin-top:2px}
+
+/* Toeschrijving met portret. */
+.founder{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4);
+  font-size:var(--fs-small);color:var(--c-ink-muted);line-height:1.5}
+.founder__portrait{width:56px;height:56px;flex:none;border-radius:var(--r-full);object-fit:cover}
+
+@media (min-width:720px){
+  .cert-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-8) var(--sp-7)}
+}
+@media (min-width:1000px){
+  .steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-6)}
+}
+
+.hub{background:var(--c-white);border-top:1px solid var(--c-line);padding-block:clamp(48px,5vw,72px)}
+.hub-grid{display:grid;gap:var(--sp-8);grid-template-columns:1fr}
+.hub-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-ink-muted);margin-bottom:var(--sp-4)}
+.hub-list{display:flex;flex-direction:column;gap:var(--sp-2)}
+.hub-list a{font-size:var(--fs-small);color:var(--c-ink-soft);text-decoration:none;line-height:1.5}
+.hub-list a:hover{color:var(--c-orange-text);text-decoration:underline;text-underline-offset:3px}
+
+/* ── Mobiele actiebalk met belknop ── */
+.mobile-cta__row{display:grid;grid-template-columns:56px minmax(0,1fr);gap:var(--sp-2)}
+.btn--icon{min-height:56px;width:56px;padding:0;border:1.5px solid var(--c-line-strong);
+  background:var(--c-white);color:var(--c-ink-soft);border-radius:var(--r-md);display:grid;place-items:center}
+.btn--icon:hover{background:var(--c-green-b)}
+
+@media (min-width:560px){
+  .mhead{display:grid;grid-template-columns:minmax(0,1fr) 132px 124px;gap:var(--sp-5);
+    padding-bottom:var(--sp-3);border-bottom:1px solid var(--c-line);
+    font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink-muted)}
+  .mhead span + span{text-align:right}
+  .mrow{grid-template-columns:minmax(0,1fr) 132px 124px;align-items:baseline}
+  .mrow__v{text-align:right}
+  .mrow__k{display:none}
+  .mlist{margin-top:var(--sp-4)}
+  .mini__row{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+}
+@media (min-width:720px){
+  .dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gidscard[data-img="true"]{grid-template-columns:200px minmax(0,1fr);gap:var(--sp-6)}
+  /* Twee kolommen, drie kinderen: de CTA krijgt een eigen volle rij. */
+  .gidscard__cta{grid-column:1 / -1}
+}
+@media (min-width:560px){
+  /* Vaste regelval van drie regels, net als in het voorbeeld. */
+  .edge-h br{display:block}
+}
+@media (min-width:1000px){
+  /* Horizontale tijdlijn: de lijn loopt door de markeringen heen. */
+  .flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-7)}
+  .flowstep{padding-left:0;padding-top:60px}
+  .flowstep:not(:last-child)::before{left:46px;right:calc(-1 * var(--sp-7));top:20px;
+    bottom:auto;width:auto;height:1px}
+  .proof-top{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:var(--sp-9)}
+  .proof-photo{aspect-ratio:7/6}
+  .edge-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:var(--sp-8);align-items:center}
+  .edge-shot{max-width:none;margin-inline:0;margin-right:calc(-1 * var(--bleed))}
+  .sec-shell{grid-template-columns:272px minmax(0,1fr);gap:var(--sp-6);align-items:stretch}
+  .sec-rail{flex-direction:column;overflow:visible;padding:0}
+  .sec-tab{width:100%}
+  .sec-tab__chev{display:block}
+  .sec-promo{display:flex}
+  /* De brede variant is hier uitgesloten in plaats van overschreven: een
+     600px-fototrack past pas vanaf 1120px naast een leesbare tekstkolom, en
+     met :not() is er geen enkele afhankelijkheid van bronorde. */
+  .sec-head{grid-template-columns:minmax(0,1fr) 300px}
+  .sec-head{gap:var(--sp-7);align-items:start}
+  .gidscard{grid-template-columns:minmax(0,1fr) auto;gap:var(--sp-7)}
+  .gidscard[data-img="true"]{grid-template-columns:200px minmax(0,1fr) auto}
+  .gidscard__cta{grid-column:auto}
+}
+@media (min-width:1180px){
+  .sec-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .seccard{padding:var(--sp-5)}
+  /* Drie kaarten naast elkaar: compacter, zodat elke maatregelregel
+     op één regel blijft staan. */
+  .mrow{gap:10px}
+  .mrow__n{width:26px;height:26px;font-size:12px}
+  .mrow__ico{width:20px;height:20px}
+}
+@media (min-width:1060px){
+  .dl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  /* Vijf kolommen pas vanaf 1280px; daaronder drie, want vijf tracks van
+     onder 200px breken de linktitels over drie regels. */
+  .hub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FUNDAMENT · dienstpagina's. Kale kolommen, haarlijnen, geen kaders.
+   ══════════════════════════════════════════════════════════════════ */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-2);font-size:var(--fs-micro);
+  color:var(--c-ink-muted);margin-bottom:var(--sp-6)}
+.crumb a{color:var(--c-ink-muted);text-decoration:none}
+.crumb a:hover{color:var(--c-orange-text);text-decoration:underline;text-underline-offset:3px}
+.crumb svg{color:var(--c-line-strong);flex:none}
+
+.herostats{display:grid;gap:var(--sp-6) var(--sp-8);grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:var(--sp-10);padding-top:var(--sp-7);border-top:1px solid var(--c-line)}
+.hstat__v{display:block;font-size:clamp(1.75rem,1.2rem + 1.6vw,2.5rem);font-weight:700;
+  line-height:1.05;letter-spacing:-.03em;color:var(--c-ink);font-variant-numeric:tabular-nums}
+.hstat__l{display:block;margin-top:var(--sp-2);font-size:var(--fs-small);color:var(--c-ink-muted);
+  line-height:1.4;max-width:22ch}
+
+.cols{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.col{display:flex;flex-direction:column;gap:var(--sp-4);padding-top:var(--sp-6);
+  border-top:1px solid var(--c-line-strong)}
+.col__k{font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-ink-muted)}
+.col__t{font-size:var(--fs-h3);font-weight:600;line-height:1.25;letter-spacing:-.018em;color:var(--c-ink)}
+.col__b{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.6;max-width:48ch}
+.col dl{display:flex;flex-direction:column;gap:var(--sp-4);font-size:var(--fs-small)}
+.col dt{font-weight:600;color:var(--c-ink);margin-bottom:2px}
+/* margin-inline-start:0 is verplicht: binnen de <div>-wrapper van het
+   dl/div/dt/dd-patroon is <dd> geen flexkind maar een blok, en dan geldt de
+   UA-default van 40px inspringing — die breekt de linkse kolomuitlijning. */
+.col dd{margin-inline-start:0;color:var(--c-ink-soft);line-height:1.55}
+.col__cta{margin-top:auto;padding-top:var(--sp-3)}
+
+.stackbar{display:flex;height:52px;border-radius:var(--r-sm);overflow:hidden;margin-top:var(--sp-8)}
+.stackbar span{display:block;height:100%}
+.stacklist{display:flex;flex-direction:column;margin-top:var(--sp-8)}
+.stackrow{display:grid;gap:var(--sp-2) var(--sp-6);grid-template-columns:14px minmax(0,1fr);
+  padding-block:var(--sp-5);border-top:1px solid var(--c-line)}
+.stackrow__sw{grid-column:1;width:14px;height:14px;border-radius:4px;margin-top:5px}
+.stackrow__n{grid-column:2;font-weight:600;color:var(--c-ink);font-size:var(--fs-small)}
+.stackrow__p{grid-column:2;font-variant-numeric:tabular-nums;color:var(--c-ink-muted);font-size:var(--fs-small)}
+.stackrow__b{grid-column:2;font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55;max-width:62ch}
+
+.pagerow{position:relative;display:grid;gap:var(--sp-2) var(--sp-6);
+  grid-template-columns:minmax(0,1fr) 24px;padding-block:var(--sp-6);
+  border-top:1px solid var(--c-line);color:var(--c-ink);text-decoration:none}
+.pagerow:hover{color:var(--c-orange-text);text-decoration:none}
+.pagerow__t{grid-column:1;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.015em}
+.pagerow__s{grid-column:1;font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55;max-width:64ch}
+.pagerow .arrow{grid-column:2;grid-row:1 / -1;align-self:center;color:var(--c-ink-muted);
+  transition:transform var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.pagerow:hover .arrow{transform:translateX(4px);color:var(--c-orange-text)}
+
+.notebar{display:flex;gap:var(--sp-3);align-items:flex-start;font-size:var(--fs-small);
+  color:var(--c-ink-soft);line-height:1.6;max-width:72ch}
+.notebar svg{color:var(--c-orange-text);flex:none;margin-top:3px}
+
+.prose{max-width:64ch}
+.prose p + p{margin-top:var(--sp-5)}
+.prose h3{font-size:var(--fs-h4);font-weight:600;color:var(--c-ink);margin-top:var(--sp-8);
+  margin-bottom:var(--sp-3);letter-spacing:-.012em}
+.prose ul{display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-5)}
+.prose li{display:flex;gap:var(--sp-3);align-items:flex-start;line-height:1.6}
+.prose li svg{color:var(--c-orange-text);flex:none;margin-top:5px}
+
+@media (min-width:640px){
+  .herostats{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:860px){
+  .cols--2{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-9)}
+  .cols--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  /* Vier kolommen pas boven 1120px; daaronder twee, anders wordt elke kolom te smal. */
+  .cols--4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stackrow{grid-template-columns:14px 210px 76px minmax(0,1fr);align-items:baseline}
+  .stackrow__n{grid-column:2;grid-row:1}
+  .stackrow__p{grid-column:3;grid-row:1}
+  .stackrow__b{grid-column:4;grid-row:1}
+  .pagerow{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) 24px;align-items:baseline}
+  .pagerow__t{grid-column:1;grid-row:1}
+  .pagerow__s{grid-column:2;grid-row:1}
+  .pagerow .arrow{grid-column:3;grid-row:1}
+}
+
+/* ── Vraag- en valkuilrijen ── */
+.qrow{display:grid;gap:var(--sp-2) var(--sp-7);grid-template-columns:minmax(0,1fr);
+  padding-block:var(--sp-6);border-top:1px solid var(--c-line)}
+.qrow__t{font-size:19px;font-weight:600;line-height:1.35;letter-spacing:-.012em;color:var(--c-ink)}
+.qrow__b{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.6;max-width:66ch}
+@media (min-width:860px){
+  .qrow{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:baseline}
+  .qrow__t{grid-column:1}
+  .qrow__b{grid-column:2}
+}
+
+@media (min-width:1120px){
+  .cols--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-7)}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ENERGIEBEGRIPPEN · hub en 143 begrippagina's.
+   De hub is een index, de begrippagina is doorlopende tekst met tabellen.
+   Zie FUNDAMENT.md hoofdstuk 12.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Definitieblok: het antwoord staat boven de vouw. Dat is wat de bezoeker
+   zoekt én wat Google als uitgelicht resultaat oppakt. */
+.defbox{margin-top:var(--sp-8);padding-top:var(--sp-6);border-top:1px solid var(--c-line)}
+.defbox__k{font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-ink-muted);margin-bottom:var(--sp-3)}
+.defbox__t{font-size:clamp(1.0625rem,.98rem + .35vw,1.25rem);line-height:1.55;color:var(--c-ink);
+  max-width:62ch}
+.defbox__t a{color:var(--c-orange-text)}
+
+/* Letternavigatie op de hub */
+.ltrnav{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-bottom:var(--sp-4)}
+.ltr{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;
+  padding:0 var(--sp-2);border:1px solid var(--c-line);border-radius:var(--r-sm);
+  background:var(--c-white);color:var(--c-ink);font-size:15px;font-weight:600;text-decoration:none;
+  transition:background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.ltr:hover{background:var(--c-green-b);border-color:var(--c-green-c);color:var(--c-green-c);text-decoration:none}
+
+/* Begrippenlijst: rijen, geen kaarten — 143 kaarten zou een muur zijn. */
+.bglist{display:grid;gap:0;grid-template-columns:minmax(0,1fr)}
+.bgl{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  min-height:52px;padding:var(--sp-3) 0;border-bottom:1px solid var(--c-line);
+  font-size:var(--fs-small);font-weight:500;color:var(--c-ink);text-decoration:none;line-height:1.4}
+.bgl:hover{color:var(--c-orange-text);text-decoration:none}
+.bgl .arrow{flex:none;color:var(--c-ink-muted);
+  transition:transform var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.bgl:hover .arrow{transform:translateX(3px);color:var(--c-orange-text)}
+
+/* Doorlopende tekst van een begrippagina */
+.begrip{max-width:68ch}
+.begrip p{font-size:var(--fs-body);color:var(--c-ink-soft);line-height:1.7}
+.begrip p + p{margin-top:var(--sp-5)}
+.begrip .begrip-h2{margin-top:var(--sp-10);margin-bottom:var(--sp-4)}
+.begrip .begrip-lead{font-size:var(--fs-lead);line-height:1.55;color:var(--c-ink)}
+.begrip .begrip-adem{margin-top:var(--sp-7)}
+.begrip .begrip-h3{margin-top:var(--sp-8);margin-bottom:var(--sp-3)}
+.begrip ul,.begrip ol{display:flex;flex-direction:column;gap:var(--sp-3);
+  margin-top:var(--sp-5);padding-left:var(--sp-6)}
+.begrip ul{list-style:none;padding-left:0}
+.begrip ul > li{position:relative;padding-left:var(--sp-6);font-size:var(--fs-body);
+  color:var(--c-ink-soft);line-height:1.65}
+.begrip ul > li::before{content:"";position:absolute;left:6px;top:.65em;width:6px;height:6px;
+  border-radius:var(--r-full);background:var(--c-orange)}
+.begrip ol{list-style:decimal}
+.begrip ol > li{font-size:var(--fs-body);color:var(--c-ink-soft);line-height:1.65;padding-left:var(--sp-2)}
+.begrip li p{margin:0}
+.begrip li + li{margin-top:0}
+.begrip strong{color:var(--c-ink);font-weight:600}
+.begrip a{color:var(--c-orange-text);text-decoration:underline;text-underline-offset:3px}
+.begrip a:hover{color:var(--c-orange-press)}
+.begrip-img{display:block;width:100%;max-width:560px;height:auto;border-radius:var(--r-md);
+  margin-block:var(--sp-8)}
+
+/* Tabellen uit de bron: horizontaal schuifbaar in plaats van geknepen. */
+.btbl-wrap{margin-block:var(--sp-8);overflow-x:auto;
+  border:1px solid var(--c-line);border-radius:var(--r-md)}
+.btbl{width:100%;min-width:520px;border-collapse:collapse;font-size:var(--fs-small)}
+.btbl th,.btbl td{padding:var(--sp-4) var(--sp-5);text-align:left;vertical-align:top;
+  border-bottom:1px solid var(--c-line);line-height:1.55}
+/* De brontabellen hebben geen thead: de kopcellen staan als th in de eerste
+   rij van de tbody. Beide vormen krijgen dezelfde opmaak. */
+.btbl thead th,
+.btbl tbody tr:first-child th{background:var(--c-green-a);font-weight:700;color:var(--c-ink);
+  font-size:var(--fs-micro);letter-spacing:.03em;text-transform:uppercase}
+/* Kopcellen in een rijkop (eerste kolom) blijven gewone tekst. */
+.btbl tbody tr:not(:first-child) th{font-weight:600;color:var(--c-ink);background:transparent;
+  text-transform:none;letter-spacing:0;font-size:var(--fs-small)}
+.btbl tbody tr:last-child th,.btbl tbody tr:last-child td{border-bottom:0}
+.btbl td p,.btbl th p{margin:0;font-size:var(--fs-small);color:inherit;line-height:1.55}
+.btbl td p + p{margin-top:var(--sp-2)}
+.btbl ul,.btbl ol{margin-top:var(--sp-2);gap:var(--sp-1)}
+.btbl strong{color:var(--c-ink)}
+
+@media (min-width:640px){
+  .bglist{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--sp-8)}
+}
+@media (min-width:1060px){
+  .bglist{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* ── Begrippagina: chip, metaregel, inhoudsopgave, FAQ ── */
+.cchip{display:inline-flex;align-items:center;gap:8px;padding:7px var(--sp-4);
+  background:var(--c-white);border:1px solid var(--c-line);border-radius:var(--r-full);
+  font-size:var(--fs-micro);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--c-ink-soft);text-decoration:none;
+  transition:border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+.cchip:hover{border-color:var(--c-green-c);color:var(--c-green-c);text-decoration:none}
+.cchip svg{color:var(--c-orange-text);flex:none}
+
+/* Leestijd, controledatum en herkomst: de signalen waarop een lezer én een
+   zoekmachine inschatten of een uitleg te vertrouwen is. */
+.bmeta{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-6);margin-top:var(--sp-6);
+  font-size:var(--fs-micro);color:var(--c-ink-muted)}
+.bmeta span{display:flex;align-items:center;gap:7px}
+.bmeta svg{flex:none;color:var(--c-ink-muted)}
+.defbox__k{display:flex;align-items:center;gap:8px}
+.defbox__k svg{flex:none;color:var(--c-orange-text)}
+
+/* Inhoudsopgave: naast de tekst op desktop, erboven op mobiel. */
+.bsplit{display:grid;gap:var(--sp-8);grid-template-columns:minmax(0,1fr)}
+.btoc{padding-top:var(--sp-6);border-top:1px solid var(--c-line)}
+.btoc__k{font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-ink-muted);margin-bottom:var(--sp-4)}
+.btoc__l{display:flex;flex-direction:column;gap:var(--sp-1);list-style:none;padding:0;
+  counter-reset:toc}
+.btoc__l li{counter-increment:toc}
+.btoc__l a{display:flex;gap:10px;padding:7px 0;font-size:var(--fs-small);color:var(--c-ink-soft);
+  text-decoration:none;line-height:1.45}
+.btoc__l a::before{content:counter(toc);flex:none;min-width:18px;font-variant-numeric:tabular-nums;
+  font-weight:700;color:var(--c-ink-muted)}
+.btoc__l a:hover{color:var(--c-orange-text);text-decoration:none}
+.btoc__l a:hover::before{color:var(--c-orange-text)}
+
+/* Anker-offset zodat een gesprongen kop niet onder de sticky header valt. */
+.begrip [id]{scroll-margin-top:calc(var(--header-h) + 24px)}
+
+.bfaq{max-width:68ch;margin-top:var(--sp-11);padding-top:var(--sp-9);
+  border-top:1px solid var(--c-line)}
+
+@media (min-width:1000px){
+  .bsplit{grid-template-columns:minmax(0,1fr) 264px;gap:var(--sp-9);align-items:start}
+  .btoc{grid-column:2;grid-row:1;position:sticky;top:calc(var(--header-h) + 24px)}
+  .bsplit .begrip{grid-column:1;grid-row:1}
+}
+
+/* ── Zoeken in de begrippenlijst ──
+   Filteren gebeurt op de DOM: 326 rijen door React laten herrenderen bij elke
+   toetsaanslag is merkbaar traag, en de rijen zijn statisch. */
+.bzoek{margin-bottom:var(--sp-7)}
+.bzoek__veld{position:relative;display:flex;align-items:center;max-width:520px}
+.bzoek__veld svg{position:absolute;left:var(--sp-5);color:var(--c-ink-muted);pointer-events:none}
+.bzoek__veld input{width:100%;min-height:56px;padding:0 var(--sp-5) 0 52px;
+  background:var(--c-white);border:1.5px solid var(--c-line-strong);border-radius:var(--r-md);
+  font-family:inherit;font-size:16px;color:var(--c-ink);
+  transition:border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out)}
+.bzoek__veld input::placeholder{color:var(--c-ink-muted)}
+.bzoek__veld input:focus{outline:none;border-color:var(--c-green-c);
+  box-shadow:0 0 0 3px var(--c-green-b)}
+.bzoek__veld input::-webkit-search-cancel-button{cursor:pointer}
+.bzoek__n{margin-top:var(--sp-3);font-size:var(--fs-small);color:var(--c-ink-muted)}
+.ltr[data-leeg="true"]{opacity:.4;pointer-events:none}
+.bleeg{display:flex;gap:var(--sp-4);align-items:flex-start;margin-top:var(--sp-8);
+  padding:var(--sp-6);background:var(--c-green-a);border:1px solid var(--c-line);
+  border-radius:var(--r-md);font-size:var(--fs-small);color:var(--c-ink-soft);
+  line-height:1.6;max-width:64ch}
+.bleeg svg{flex:none;margin-top:2px;color:var(--c-orange-text)}
+.bleeg strong{color:var(--c-ink)}
+
+/* ── Zoeken vanaf een begrippagina ──
+   Geen lijst om te filteren, dus een combobox met resultaten. Staat in de
+   sticky zijkolom: daar merkt iemand dat hij een ánder begrip nodig heeft. */
+.bside{display:flex;flex-direction:column;gap:var(--sp-5)}
+.bsearch{position:relative;background:var(--c-white);border:1px solid var(--c-line);
+  border-radius:var(--r-md);padding:var(--sp-5)}
+.bsearch__veld{position:relative;display:flex;align-items:center;margin-top:var(--sp-3)}
+.bsearch__veld svg{position:absolute;left:var(--sp-4);color:var(--c-ink-muted);pointer-events:none}
+.bsearch__veld input{width:100%;min-height:48px;padding:0 var(--sp-4) 0 44px;
+  background:var(--c-white);border:1.5px solid var(--c-line-strong);border-radius:var(--r-sm);
+  font-family:inherit;font-size:15px;color:var(--c-ink)}
+.bsearch__veld input::placeholder{color:var(--c-ink-muted)}
+.bsearch__veld input:focus{outline:none;border-color:var(--c-green-c);
+  box-shadow:0 0 0 3px var(--c-green-b)}
+.bsearch__n{margin-top:var(--sp-2);font-size:var(--fs-micro);color:var(--c-ink-muted);min-height:1em}
+.bsearch__l{list-style:none;margin:var(--sp-3) 0 0;padding:0;display:flex;flex-direction:column;
+  border-top:1px solid var(--c-line)}
+.bsearch__l li{border-bottom:1px solid var(--c-line)}
+.bsearch__l li:last-child{border-bottom:0}
+.bsearch__l a{display:flex;flex-direction:column;gap:2px;padding:var(--sp-3) 0;
+  text-decoration:none;color:var(--c-ink)}
+.bsearch__l a:hover{text-decoration:none}
+.bsearch__l li:hover .bsearch__t,
+.bsearch__l li[data-actief="true"] .bsearch__t{color:var(--c-orange-text)}
+.bsearch__l li[data-actief="true"]{background:var(--c-green-a)}
+.bsearch__t{font-size:15px;font-weight:600;line-height:1.3}
+.bsearch__c{font-size:12px;color:var(--c-ink-muted);line-height:1.35}
+.bsearch__leeg{margin-top:var(--sp-3);font-size:var(--fs-micro);color:var(--c-ink-soft);
+  line-height:1.5}
+
+/* Toelichting onder het zoekveld op de hub: zonder die regel weet niemand dat
+   er ook op afkortingen en op problemen wordt gezocht. */
+.bzoek__hint{margin-top:var(--sp-2);font-size:var(--fs-micro);color:var(--c-ink-muted);
+  max-width:60ch;line-height:1.5}
+
+/* In één kolom stond het zoekvak tussen de definitie en de eerste alinea:
+   samen met de inhoudsopgave 509px navigatie vóór de tekst waarvoor iemand
+   kwam. Daarom valt .bside daar weg als container (display:contents) en
+   worden de drie blokken los geordend: inhoudsopgave, artikel, zoekvak.
+   De inhoudsopgave helpt vóór het lezen, het zoekvak erna.
+   De bereiken zijn disjunct, dus de bronorde speelt geen rol. */
+@media (max-width:999px){
+  .bside{display:contents}
+  .bsplit .btoc{order:1}
+  .bsplit .begrip{order:2}
+  .bsplit .bsearch{order:3}
+}
+@media (min-width:1000px){
+  .bsplit .bside{grid-column:2;grid-row:1;position:sticky;top:calc(var(--header-h) + 24px)}
+  .bsplit .btoc{position:static;top:auto}
+}
+
+/* ── Beste treffers boven de gefilterde lijst ──
+   De A–Z-lijst staat op alfabet, dus de meest relevante treffer staat daar
+   zelden bovenaan. Dit blok zet de top vijf op relevantie, met één regel
+   context per treffer zodat niemand hoeft te gokken. */
+.btop{margin-bottom:var(--sp-8);padding:var(--sp-6);background:var(--c-green-a);
+  border:1px solid var(--c-line);border-radius:var(--r-md)}
+.btop__k{font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-ink-muted);margin-bottom:var(--sp-4)}
+.btop__l{display:flex;flex-direction:column}
+.btop__i{display:grid;gap:2px var(--sp-5);grid-template-columns:minmax(0,1fr);
+  padding:var(--sp-4) 0;border-top:1px solid var(--c-line);text-decoration:none;color:var(--c-ink)}
+.btop__i:first-child{border-top:0;padding-top:0}
+.btop__i:hover{text-decoration:none}
+.btop__t{font-size:17px;font-weight:600;line-height:1.3;
+  transition:color var(--dur-fast) var(--ease-out)}
+.btop__i:hover .btop__t{color:var(--c-orange-text)}
+.btop__c{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--c-ink-muted)}
+.btop__d{font-size:var(--fs-small);color:var(--c-ink-soft);line-height:1.55;max-width:70ch}
+.btop__rest{margin-top:var(--sp-4);font-size:var(--fs-micro);color:var(--c-ink-muted)}
+
+@media (min-width:720px){
+  .btop__i{grid-template-columns:minmax(0,1fr) 190px;align-items:baseline}
+  .btop__t{grid-column:1;grid-row:1}
+  .btop__c{grid-column:2;grid-row:1;text-align:right}
+  .btop__d{grid-column:1;grid-row:2}
+}
+
+
+/* Artikelbeeld: liggend 16:9 aan de voet van de heroband, over de volle
+   containerbreedte. Breder dan .secfoto (3:2, max 760px) omdat dit beeld ook
+   als og:image wordt gedeeld — sociale platforms vragen 16:9 vanaf 1200px.
+   Géén width/height hier: die staan op het element en worden afgeleid met
+   scripts/beeldmaten.js. */
+.artfoto{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  object-position:50% 50%;border-radius:var(--r-xl);background:var(--c-green-b);
+  margin-top:var(--sp-9)}

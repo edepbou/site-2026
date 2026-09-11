@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Energie inkopen" description="Dienstpagina zakelijke energie-inkoop: rekeningopbouw, collectief of individueel, strategie, werkwijze, grootverbruik, voorstelformulier" -->
+<helmet>
+<title>Zakelijke energie inkopen | Energy Department</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#252025">
+<meta name="description" content="Koop zakelijk energie in via ons collectief van 1.000+ bedrijven en bespaar tot 30%. Wij vergelijken, onderhandelen en regelen de overstap voor u.">
+<link rel="canonical" href="https://www.edepartment.nl/energie-inkopen">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Energy Department">
+<meta property="og:title" content="Zakelijke energie inkopen | Energy Department">
+<meta property="og:description" content="Wij vergelijken de markt, onderhandelen namens u en regelen de overstap. Tot 30% voordeel via ons collectief.">
+<meta property="og:url" content="https://www.edepartment.nl/energie-inkopen">
+<meta property="og:image" content="https://www.edepartment.nl/assets/photos/og-standaard.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../ed-site.css">
+<template id="__bundler_thumbnail" data-bg-color="#252025">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Energie inkopen">
+    <rect width="240" height="240" fill="#252025"></rect>
+    <g transform="translate(72 72)" fill="none" stroke="#F58113" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 34h40"></path><path d="M4 62h30"></path>
+      <path d="M64 14a26 26 0 0 0-17-7 24 24 0 0 0 0 55 26 26 0 0 0 17-7"></path>
+    </g>
+  </svg>
+</template>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"Organization","@id":"https://www.edepartment.nl/#organization","name":"Energy Department","url":"https://www.edepartment.nl/"},
+    {
+      "@type": "Service",
+      "@id": "https://www.edepartment.nl/energie-inkopen#service",
+      "name": "Zakelijke energie inkopen",
+      "serviceType": "Energie-inkoop en contractbemiddeling",
+      "provider": {"@id":"https://www.edepartment.nl/#organization"},
+      "areaServed": "NL",
+      "url": "https://www.edepartment.nl/energie-inkopen",
+      "description": "Individueel of collectief zakelijk energie inkopen met een besparing tot 30 procent op het leveringsdeel, via een collectief van meer dan 1.000 bedrijven.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Manieren van inkopen",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Collectief energie inkopen","url":"https://www.edepartment.nl/energie-inkopen/collectief"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Individueel energie inkopen","url":"https://www.edepartment.nl/energie-inkopen/individueel"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Inkoopstrategie bepalen","url":"https://www.edepartment.nl/energie-inkopen/inkoopstrategie"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Energiecontract oversluiten","url":"https://www.edepartment.nl/energie-inkopen/overstappen"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Energie inkopen voor grootverbruik","url":"https://www.edepartment.nl/energie-inkopen/grootverbruik"}}
+        ]
+      }
+    },
+    {"@type":"WebPage","@id":"https://www.edepartment.nl/energie-inkopen#webpage","url":"https://www.edepartment.nl/energie-inkopen","name":"Zakelijke energie inkopen | Energy Department","inLanguage":"nl-NL","about":{"@id":"https://www.edepartment.nl/energie-inkopen#service"}},
+    {"@type":"BreadcrumbList","@id":"https://www.edepartment.nl/energie-inkopen#breadcrumb","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.edepartment.nl/"},
+      {"@type":"ListItem","position":2,"name":"Energie inkopen","item":"https://www.edepartment.nl/energie-inkopen"}
+    ]},
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.edepartment.nl/energie-inkopen#faq",
+      "mainEntity": [
+        {"@type":"Question","name":"Hoeveel kan ik besparen met collectief inkopen?","acceptedAnswer":{"@type":"Answer","text":"Door de inkoopkracht van ons collectief van meer dan 1.000 bedrijven bespaart u tot 30% op het leveringsdeel van uw rekening. Hoeveel het in uw geval is, hangt af van uw volume, uw profiel en het moment waarop u vastlegt. In het voorstel staat het bedrag, niet het percentage."}},
+        {"@type":"Question","name":"Bent u een energieleverancier?","acceptedAnswer":{"@type":"Answer","text":"Nee. Wij leveren geen energie en verdienen niets aan uw verbruik. Wij onderhandelen namens u bij meerdere leveranciers en blijven daardoor onafhankelijk in ons advies."}},
+        {"@type":"Question","name":"Wat kost het om via Energy Department in te kopen?","acceptedAnswer":{"@type":"Answer","text":"U weet vooraf precies wat u betaalt en waaruit onze vergoeding bestaat; het staat zwart op wit in uw voorstel. Er zijn geen kosten verbonden aan het aanvragen of vergelijken zelf."}},
+        {"@type":"Question","name":"Kan ik mijn huidige contract nu al oversluiten?","acceptedAnswer":{"@type":"Answer","text":"Vaak wel. De meeste zakelijke contracten kunt u ver voor de einddatum al vastleggen voor de volgende periode. Wij noteren uw einddatum en opzegtermijn en komen op tijd bij u terug, zodat u nooit in een duur variabel vangnettarief valt."}},
+        {"@type":"Question","name":"Is vast of variabel nu slim?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt af van hoeveel prijsschommeling uw begroting kan dragen. Vast geeft zekerheid tegen een risicopremie, variabel volgt de markt, en klikken in tranches spreidt het risico over meerdere momenten. Wij rekenen alle drie door met uw eigen verbruiksprofiel."}},
+        {"@type":"Question","name":"Werkt dit ook voor kleinverbruikaansluitingen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Ook met meerdere kleinverbruikaansluitingen, bijvoorbeeld bij winkels, horeca of vastgoed, kunt u meedoen in het collectief. Wij bundelen uw aansluitingen tot één volume en één contractmoment."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+@media (min-width:1024px){
+  .steps--5{grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-6)}
+}
+.pricechart{margin-top:var(--sp-9);padding-top:var(--sp-7);border-top:1px solid var(--c-line)}
+.pricelegend{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-6);margin-top:var(--sp-5);
+  font-size:var(--fs-small);color:var(--c-ink-soft)}
+.pricelegend span{display:flex;align-items:center;gap:var(--sp-2)}
+.pricelegend i{width:18px;height:0;border-top-width:3px;border-top-style:solid;border-radius:2px;flex:none}
+</style>
+</helmet>
+
+<div id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-check" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></symbol>
+<symbol id="i-check-circle" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></symbol>
+<symbol id="i-bolt" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></symbol>
+<symbol id="i-file-check" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></symbol>
+<symbol id="i-sun" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"></path></symbol>
+<symbol id="i-building" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M9.5 8h1M13.5 8h1M9.5 12h1M13.5 12h1M10 21v-4h4v4"></path></symbol>
+<symbol id="i-tag" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m20.6 13.4-7.2 7.2a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 2.8 12V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.4 7.4a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.2"></circle></symbol>
+<symbol id="i-shield-check" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></symbol>
+<symbol id="i-compass" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m15.6 8.4-2.2 5.2-5.2 2.2 2.2-5.2z"></path></symbol>
+<symbol id="i-monitor" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></symbol>
+<symbol id="i-award" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="m8.5 14.3-1.5 7.2 5-3 5 3-1.5-7.2"></path></symbol>
+<symbol id="i-certificate" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H4z"></path><path d="M8 8h8M8 11.5h5"></path><path d="M8 21v-6h8v6l-4-2.4z"></path></symbol>
+<symbol id="i-target" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4"></circle></symbol>
+<symbol id="i-arrow-right" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></symbol>
+<symbol id="i-arrow-up" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></symbol>
+<symbol id="i-chevron-down" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></symbol>
+<symbol id="i-menu" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></symbol>
+<symbol id="i-close" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></symbol>
+<symbol id="i-phone" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></symbol>
+<symbol id="i-mail" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></symbol>
+<!-- Sociale marks zijn GEEN sprite-symbolen. Het merk bezit die vier glyphs
+     wél als geëxtraheerd asset (oranje schijf, gevuld) — zie assets/icons/.
+     Een nagetekende outline-versie in de Lucide-substitutiestijl hoort hier
+     dus niet: gebruik <img src="../assets/icons/social-*.svg">. -->
+<symbol id="i-star" sc-camel-view-box="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 3 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.8z"></path></symbol>
+<symbol id="i-external" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></symbol>
+<symbol id="i-alert" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></symbol>
+<!-- Iconenbibliotheek uit het merkbeeld: outline, 24×24, streek 1.75, ronde uiteinden.
+     Deze set is het fundament voor de hele site; voeg nieuwe iconen alleen in deze stijl toe. -->
+<symbol id="i-download" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></symbol>
+<symbol id="i-lock" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></symbol>
+<symbol id="i-euro" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7 7 0 0 0 13.8 20 7.7 7.7 0 0 0 19 18"></path></symbol>
+<symbol id="i-trending-up" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></symbol>
+<symbol id="i-chart-bar" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M8 17v-5"></path><path d="M13 17V8"></path><path d="M18 17v-9"></path></symbol>
+<symbol id="i-file-text" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path><path d="M15 2v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></symbol>
+<symbol id="i-eye" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+<symbol id="i-scale" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></symbol>
+<symbol id="i-calendar" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path></symbol>
+<symbol id="i-clock" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></symbol>
+<symbol id="i-users" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
+<symbol id="i-search" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></symbol>
+<symbol id="i-lightbulb" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5a6 6 0 0 0-12 0c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></symbol>
+<symbol id="i-leaf" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></symbol>
+<symbol id="i-wind" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"></path><path d="M9.6 4.6A2 2 0 1 1 11 8H2"></path><path d="M12.6 19.4A2 2 0 1 0 14 16H2"></path></symbol>
+<symbol id="i-plug" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"></path><path d="M9 8V2"></path><path d="M15 8V2"></path><path d="M18 8v3a6 6 0 0 1-12 0V8Z"></path></symbol>
+<symbol id="i-gauge" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></symbol>
+<symbol id="i-cloud" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></symbol>
+<symbol id="i-handshake" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path></symbol>
+<symbol id="i-utensils" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V2"></path><path d="M6 11v11"></path><path d="M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2Z"></path><path d="M19 15v7"></path></symbol>
+<symbol id="i-house" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></symbol>
+<symbol id="i-factory" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9.5a.5.5 0 0 0-.77-.42l-4.46 2.84a.5.5 0 0 1-.77-.42v-2a.5.5 0 0 0-.77-.42L9.77 11.9a.5.5 0 0 1-.77-.42V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"></path><path d="M8 16h.01"></path><path d="M12 16h.01"></path><path d="M16 16h.01"></path></symbol>
+<symbol id="i-store" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path></symbol>
+<symbol id="i-heart-pulse" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"></path></symbol>
+<symbol id="i-graduation" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></symbol>
+<symbol id="i-truck" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></symbol>
+<symbol id="i-sprout" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"></path><path d="M10 20c5.5-2.5.8-6.4 3-10"></path><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"></path><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"></path></symbol>
+<symbol id="i-briefcase" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect x="2" y="7" width="20" height="14" rx="2"></rect></symbol>
+<symbol id="i-car" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2v-4l-1.6-4.4A2 2 0 0 0 17.5 7h-11a2 2 0 0 0-1.9 1.6L3 13v4h2"></path><path d="M7 17h10"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M5 13h14"></path></symbol>
+<symbol id="i-snowflake" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="m20 7-16 10"></path><path d="m4 7 16 10"></path><path d="M12 6.5 9 4"></path><path d="M12 6.5 15 4"></path><path d="M12 17.5 9 20"></path><path d="M12 17.5 15 20"></path></symbol>
+<symbol id="i-pie-chart" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M21 12a9 9 0 0 0-9-9"></path></symbol>
+<symbol id="i-megaphone" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></symbol>
+<symbol id="i-info" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 16v-5"></path><path d="M12 8h.01"></path></symbol>
+<symbol id="i-layers" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12.18a1 1 0 0 0 .6.9l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.91"></path><path d="M2 17.18a1 1 0 0 0 .6.9l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.91"></path></symbol>
+<symbol id="i-list-check" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6h10"></path><path d="M11 12h10"></path><path d="M11 18h10"></path><path d="m3 6 2 2 3-3"></path><path d="m3 13 2 2 3-3"></path></symbol>
+<symbol id="i-calculator" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M8 6h8"></path><path d="M8 11h.01"></path><path d="M12 11h.01"></path><path d="M16 11h.01"></path><path d="M8 15h.01"></path><path d="M12 15h.01"></path><path d="M16 15v4"></path><path d="M8 19h4"></path></symbol>
+<symbol id="i-chevron-right" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></symbol>
+<symbol id="i-dots" sc-camel-view-box="0 0 24 24" fill="currentColor" stroke="none"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></symbol>
+<symbol id="i-question" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.1 9.3a3 3 0 0 1 5.8 1c0 2-3 2.4-3 4"></path><path d="M12 17.5h.01"></path></symbol>
+<symbol id="i-box" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></symbol>
+<symbol id="i-dumbbell" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18 22 4-4"></path><path d="m2 6 4-4"></path><path d="m3 10 7-7"></path><path d="m14 21 7-7"></path></symbol>
+</defs></svg>
+
+<a class="skip-link" href="#main">Direct naar de inhoud</a>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-row">
+      <a href="../index.html" aria-label="Energy Department, naar de homepage" style="display:flex;align-items:center;flex:none">
+        <img src="../assets/logo-header.png" alt="Energy Department" width="178" height="40" style="height:40px;width:auto" fetchpriority="high">
+      </a>
+      <nav class="nav-desktop" aria-label="Hoofdnavigatie">
+        <div class="nav-item">
+          <button type="button" class="nav-link" aria-expanded="{{ ddExpanded }}" aria-controls="menu-diensten" aria-haspopup="true" sc-camel-on-click="{{ toggleDropdown }}">
+            Diensten<svg class="chev" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+          </button>
+          <div class="dropdown" id="menu-diensten" data-open="{{ ddDienstenAttr }}">
+            <a class="dropdown__item" href="../energie-inkopen/index.html" aria-current="page"><span><span class="dropdown__title">Energie inkopen</span><span class="dropdown__sub">Tot 30% goedkoper, alleen of collectief</span></span></a>
+            <a class="dropdown__item" href="../energiebesparingsplicht/index.html"><span><span class="dropdown__title">Energiebesparingsplicht</span><span class="dropdown__sub">Informatieplicht, onderzoeksplicht en EED</span></span></a>
+            <a class="dropdown__item" href="../advies-begeleiding/index.html"><span><span class="dropdown__title">Advies &amp; begeleiding</span><span class="dropdown__sub">Besparingsadvies, subsidie en energielabel</span></span></a>
+            <a class="dropdown__item" href="../energiemanagement/index.html"><span><span class="dropdown__title">Energiemanagement</span><span class="dropdown__sub">EMS, EBS en continu inzicht</span></span></a>
+            <a class="dropdown__item" href="../energiemanagement/edge/index.html"><span><span class="dropdown__title">EDGE™</span><span class="dropdown__sub">AI-gestuurd energiemanagement in realtime</span></span><span class="badge">Nieuw</span></a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button type="button" class="nav-link" aria-expanded="{{ secExpanded }}" aria-controls="menu-sectoren" aria-haspopup="true" sc-camel-on-click="{{ toggleSectoren }}">
+            Sectoren<svg class="chev" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+          </button>
+          <div class="dropdown dropdown--wide" id="menu-sectoren" data-open="{{ ddSectorenAttr }}">
+            <a class="dropdown__item" href="../sectoren/horeca/index.html"><span><span class="dropdown__title">Horeca en recreatie</span><span class="dropdown__sub">Koeling, keuken en klimaat</span></span></a>
+            <a class="dropdown__item" href="../sectoren/vastgoed/index.html"><span><span class="dropdown__title">Vastgoed en VvE</span><span class="dropdown__sub">Meerdere panden, één overzicht</span></span></a>
+            <a class="dropdown__item" href="../sectoren/industrie/index.html"><span><span class="dropdown__title">Industrie en productie</span><span class="dropdown__sub">Perslucht, motoren en proceswarmte</span></span></a>
+            <a class="dropdown__item" href="../sectoren/retail/index.html"><span><span class="dropdown__title">Retail en winkels</span><span class="dropdown__sub">Meerdere vestigingen tegelijk</span></span></a>
+            <a class="dropdown__item" href="../sectoren/zorg/index.html"><span><span class="dropdown__title">Zorg en welzijn</span><span class="dropdown__sub">Comfort blijft voorop</span></span></a>
+            <a class="dropdown__item" href="../sectoren/onderwijs/index.html"><span><span class="dropdown__title">Onderwijs</span><span class="dropdown__sub">Schoolgebouwen en subsidie</span></span></a>
+            <a class="dropdown__item" href="../sectoren/transport-logistiek/index.html"><span><span class="dropdown__title">Transport en logistiek</span><span class="dropdown__sub">Hallen, deuren en laden</span></span></a>
+            <a class="dropdown__item" href="../sectoren/agrarisch/index.html"><span><span class="dropdown__title">Agrarisch en glastuinbouw</span><span class="dropdown__sub">Klimaat, licht en koeling</span></span></a>
+            <a class="dropdown__item" href="../sectoren/kantoren/index.html"><span><span class="dropdown__title">Kantoren en dienstverlening</span><span class="dropdown__sub">Label C en inregelen</span></span></a>
+            <a class="dropdown__item" href="../sectoren/sport-leisure/index.html"><span><span class="dropdown__title">Sport en leisure</span><span class="dropdown__sub">Warm water en ventilatie</span></span></a>
+            <a class="dropdown__item dropdown__all" href="../sectoren/index.html"><span><span class="dropdown__title">Alle sectoren en sectorgidsen</span></span><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+          </div>
+        </div>
+        <a class="nav-link" href="../energiemanagement/edge/index.html">EDGE™</a>
+        <a class="nav-link" href="../kennisbank/index.html">Kennis</a>
+        <a class="nav-link" href="../over-ons/index.html">Over ons</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn--secondary btn--sm" href="https://ebs.edepartment.nl/" target="_blank" rel="noopener noreferrer">Mijn EBS<svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span class="visually-hidden">(opent in een nieuw tabblad)</span></a>
+        <a class="btn btn--primary btn--sm" href="#intake">Plan gratis intake</a>
+      </div>
+      <button type="button" class="burger" aria-expanded="{{ menuExpanded }}" aria-controls="mobiel-menu" aria-label="Menu openen" sc-camel-on-click="{{ toggleMenu }}">
+        <svg class="burger__ico burger__ico--dicht" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+        <svg class="burger__ico burger__ico--open" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobiel-menu" hidden="{{ menuHidden }}">
+    <div class="container">
+      <p class="t-eyebrow ink-muted" style="margin-bottom:var(--sp-3)">Diensten</p>
+      <a class="mobile-sub" href="../energie-inkopen/index.html" aria-current="page">Energie inkopen<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../energiebesparingsplicht/index.html">Energiebesparingsplicht<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../advies-begeleiding/index.html">Advies &amp; begeleiding<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../energiemanagement/index.html">Energiemanagement<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <div style="height:var(--sp-6)"></div>
+      <p class="t-eyebrow ink-muted" style="margin-bottom:var(--sp-3)">Sectoren</p>
+      <a class="mobile-sub" href="../sectoren/horeca/index.html">Horeca en recreatie<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../sectoren/vastgoed/index.html">Vastgoed en VvE<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../sectoren/industrie/index.html">Industrie en productie<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../sectoren/retail/index.html">Retail en winkels<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../sectoren/zorg/index.html">Zorg en welzijn<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-sub" href="../sectoren/index.html">Alle sectoren<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <div style="height:var(--sp-6)"></div>
+      <a class="mobile-link" href="../energiemanagement/edge/index.html">EDGE™ <span class="badge">Nieuw</span></a>
+      <a class="mobile-link" href="../kennisbank/index.html">Kennis en downloads<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <a class="mobile-link" href="../over-ons/index.html">Over ons<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      <div style="display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-8)">
+        <a class="btn btn--secondary" href="https://ebs.edepartment.nl/" target="_blank" rel="noopener noreferrer">Mijn EBS<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span class="visually-hidden">(opent in een nieuw tabblad)</span></a>
+        <a class="btn btn--primary" href="#intake">Plan gratis intake</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1 · HERO -->
+<section class="section section--hero bg-green-a" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="pagehero">
+      <div class="pagehero__copy">
+        <nav class="crumb" aria-label="Kruimelpad">
+          <a href="../index.html">Home</a>
+          <svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+          <span aria-current="page">Energie inkopen</span>
+        </nav>
+        <p class="t-eyebrow ink-muted" style="margin-bottom:var(--sp-5)">Dienst</p>
+        <h1 class="t-h2" id="hero-title" style="max-width:22ch">Zakelijke energie inkopen.</h1>
+        <p class="t-lead ink-soft" style="margin-top:var(--sp-6);max-width:56ch">Wij vergelijken de markt, onderhandelen namens u en regelen de overstap. U kiest alleen nog wat bij uw bedrijf past.</p>
+      </div>
+      <div class="pagehero__actions">
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#intake">Vraag een vrijblijvend voorstel<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+          <a class="btn btn--secondary" href="../energie-inkopen/collectief/index.html">Bekijk collectief inkopen<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+        </div>
+        <p class="t-small ink-muted" style="margin-top:var(--sp-5)">Kosteloos · Reactie binnen 1 werkdag · U zit nergens aan vast</p>
+      </div>
+      <div class="pagehero__photo">
+        <img class="pagehero__img" src="../assets/photos/dienst-inkopen.jpg" width="500" height="500" fetchpriority="high" decoding="async" alt="Twee adviseurs bekijken samen verbruiksgrafieken op twee schermen, met een jaarnota op de tafel ernaast">
+      </div>
+    </div>
+    <div class="herostats">
+      <div><span class="hstat__v">{{ voordeel }}</span><span class="hstat__l">goedkoper op het leveringsdeel via ons collectief</span></div>
+      <div><span class="hstat__v">1.000+</span><span class="hstat__l">bedrijven kopen samen met u in</span></div>
+      <div><span class="hstat__v">12+</span><span class="hstat__l">jaar uitsluitend zakelijke energie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · OPBOUW VAN DE REKENING -->
+<section class="section bg-white" id="opbouw" aria-labelledby="opbouw-title">
+  <div class="container">
+    <h2 class="t-h2" id="opbouw-title" style="max-width:22ch">Uw rekening bestaat uit vier delen.</h2>
+    <p class="t-lead ink-soft" style="margin-top:var(--sp-6);max-width:56ch">Inkopen gaat over één van die delen. Daarom kijken wij eerst naar de andere drie, want die bewegen mee met uw verbruik.</p>
+
+    <div class="stackbar" role="img" aria-label="Indicatieve opbouw van een zakelijke energierekening: levering 42 procent, netbeheer 26 procent, energiebelasting 24 procent, opslag en overig 8 procent.">
+      <span style="width:42%;background:var(--c-orange)"></span>
+      <span style="width:26%;background:var(--c-green-c)"></span>
+      <span style="width:24%;background:#B9B9B9"></span>
+      <span style="width:8%;background:var(--c-line-strong)"></span>
+    </div>
+
+    <div class="stacklist">
+      <div class="stackrow">
+        <span class="stackrow__sw" style="background:var(--c-orange)" aria-hidden="true"></span>
+        <span class="stackrow__n">Levering</span>
+        <span class="stackrow__p">± 42%</span>
+        <span class="stackrow__b">Het enige onderhandelbare deel. Hier zit ons werk: vergelijken, volume bundelen en het juiste moment kiezen.</span>
+      </div>
+      <div class="stackrow">
+        <span class="stackrow__sw" style="background:var(--c-green-c)" aria-hidden="true"></span>
+        <span class="stackrow__n">Netbeheer</span>
+        <span class="stackrow__p">± 26%</span>
+        <span class="stackrow__b">Vast tarief van uw netbeheerder, bepaald door uw aansluitcapaciteit en piekvermogen. Niet onderhandelbaar, wél te verlagen, zie <a href="../energie-inkopen/grootverbruik/index.html">grootverbruik</a>.</span>
+      </div>
+      <div class="stackrow">
+        <span class="stackrow__sw" style="background:#B9B9B9" aria-hidden="true"></span>
+        <span class="stackrow__n">Energiebelasting</span>
+        <span class="stackrow__p">± 24%</span>
+        <span class="stackrow__b">Wettelijk vastgesteld per schijf. Daalt alleen als uw verbruik daalt, en dat maakt besparen dubbel lonend.</span>
+      </div>
+      <div class="stackrow">
+        <span class="stackrow__sw" style="background:var(--c-line-strong)" aria-hidden="true"></span>
+        <span class="stackrow__n">Opslag en overig</span>
+        <span class="stackrow__p">± 8%</span>
+        <span class="stackrow__b">Meetdiensten, administratie en heffingen. Klein bedrag, maar we controleren het mee op uw factuur.</span>
+      </div>
+    </div>
+
+    <p class="t-micro ink-muted" style="margin-top:var(--sp-5)">Indicatief. De verhouding verschilt per aansluiting, per sector en per jaar.</p>
+
+    <p class="notebar" style="margin-top:var(--sp-9)">
+      <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg>
+      <span>Drie van de vier delen bewegen mee met uw verbruik. Daarom begint een inkooptraject bij ons met de <a href="../energiebesparingsplicht/index.html">energiebesparingsplicht</a> en met <a href="../energiemanagement/index.html">energiemanagement</a>, niet met het tarief. Wat u niet verbruikt, hoeft u ook niet in te kopen.</span>
+    </p>
+  </div>
+</section>
+
+<!-- 3 · COLLECTIEF OF INDIVIDUEEL -->
+<section class="section bg-green-a" id="manieren" aria-labelledby="manieren-title">
+  <div class="container">
+    <h2 class="t-h2 head-to-lead" id="manieren-title">Collectief of individueel?</h2>
+    <p class="t-lead ink-soft" style="max-width:56ch;margin-bottom:var(--sp-10)">Twee routes naar dezelfde vraag: wat is op dit moment de beste prijs voor uw volume?</p>
+
+    <div class="cols cols--2">
+      <article class="col">
+        <p class="col__k">Route 1</p>
+        <h3 class="col__t">Collectief inkopen</h3>
+        <p class="col__b">Uw volume telt op bij dat van meer dan duizend andere bedrijven. Samen vragen we bij meerdere leveranciers een prijs op, op momenten die de markt bepaalt.</p>
+        <dl>
+          <div><dt>Voor wie</dt><dd>Van 20.000 tot ongeveer 1 miljoen kWh per jaar, één locatie of tientallen.</dd></div>
+          <div><dt>Wat u bespaart</dt><dd>{{ voordeel }} op het leveringsdeel, doordat u meeprofiteert van een volume dat u alleen nooit haalt.</dd></div>
+          <div><dt>Wat u zelf doet</dt><dd>Eén machtiging ondertekenen. De rest regelen wij.</dd></div>
+        </dl>
+        <p class="col__cta"><a class="link-arrow" href="../energie-inkopen/collectief/index.html">Naar collectief inkopen<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a></p>
+      </article>
+      <article class="col">
+        <p class="col__k">Route 2</p>
+        <h3 class="col__t">Individueel inkopen</h3>
+        <p class="col__b">Een eigen tender op uw eigen momenten. U bepaalt de strategie, wij voeren hem uit en houden de markt voor u in de gaten.</p>
+        <dl>
+          <div><dt>Voor wie</dt><dd>Grootverbruikers vanaf ongeveer 1 miljoen kWh of 100.000 m³ per jaar.</dd></div>
+          <div><dt>Wat u wint</dt><dd>Volledige grip op timing, looptijd en risico, inclusief vastleggen in tranches.</dd></div>
+          <div><dt>Wat u zelf doet</dt><dd>Meebeslissen over de momenten. Wij leveren het cijfermateriaal.</dd></div>
+        </dl>
+        <p class="col__cta"><a class="link-arrow" href="../energie-inkopen/individueel/index.html">Naar individueel inkopen<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a></p>
+      </article>
+    </div>
+
+    <p class="notebar" style="margin-top:var(--sp-10)">
+      <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-scale"></use></svg>
+      <span>Weet u niet welke route past? Wij rekenen ze beide door op dezelfde meterdata. U ziet het verschil in euro's voordat u kiest.</span>
+    </p>
+  </div>
+</section>
+
+<!-- 4 · INKOOPSTRATEGIE -->
+<section class="section bg-white" id="strategie" aria-labelledby="strategie-title">
+  <div class="container">
+    <h2 class="t-h2 head-to-lead" id="strategie-title">Vast, variabel of stap voor stap.</h2>
+    <p class="t-lead ink-soft" style="max-width:56ch;margin-bottom:var(--sp-10)">Niet uw leverancier maar uw strategie bepaalt het grootste deel van uw prijs. Er zijn drie vormen.</p>
+
+    <div class="cols cols--3">
+      <article class="col">
+        <p class="col__k">Zekerheid</p>
+        <h3 class="col__t">Vast tarief</h3>
+        <p class="col__b">U legt de prijs voor de hele looptijd vast op één moment. Wat de markt daarna doet, raakt u niet.</p>
+        <dl>
+          <div><dt>Past bij</dt><dd>Een begroting die geen schommeling kan dragen.</dd></div>
+          <div><dt>Prijs van de rust</dt><dd>De leverancier rekent een risicopremie. U betaalt gemiddeld iets meer voor de zekerheid.</dd></div>
+        </dl>
+      </article>
+      <article class="col">
+        <p class="col__k">Marktvolgend</p>
+        <h3 class="col__t">Variabel tarief</h3>
+        <p class="col__b">Uw prijs beweegt mee met de markt, meestal per maand of per kwartaal herzien.</p>
+        <dl>
+          <div><dt>Past bij</dt><dd>Bedrijven die kunnen wachten en pieken kunnen opvangen.</dd></div>
+          <div><dt>Wat u riskeert</dt><dd>Een koude winter of een marktschok komt direct op uw factuur.</dd></div>
+        </dl>
+      </article>
+      <article class="col">
+        <p class="col__k">Gespreid</p>
+        <h3 class="col__t">Vastleggen in tranches</h3>
+        <p class="col__b">U koopt uw volume in delen in, op meerdere momenten. Uw prijs wordt het gemiddelde van die momenten.</p>
+        <dl>
+          <div><dt>Past bij</dt><dd>Grotere verbruikers die risico willen spreiden zonder alles in één keer vast te zetten.</dd></div>
+          <div><dt>Wat het vraagt</dt><dd>Iemand die de markt volgt en op tijd handelt. Dat doen wij.</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="pricechart">
+      <p class="t-small" style="font-weight:600;margin-bottom:var(--sp-5)">Wat de drie vormen doen met dezelfde markt</p>
+      <svg sc-camel-view-box="0 0 800 190" style="width:100%;height:auto" role="img" aria-label="Illustratieve vergelijking: de marktprijs beweegt op en neer, een vast tarief loopt als rechte lijn iets boven het gemiddelde, en vastleggen in tranches loopt als trapvorm mee met dat gemiddelde.">
+        <path d="M0 40H800M0 90H800M0 140H800" stroke="var(--c-line)" stroke-width="1"></path>
+        <polyline points="0,120 60,96 120,132 180,72 240,104 300,58 360,88 420,44 480,76 540,110 600,64 660,96 720,58 800,84" fill="none" stroke="#B9B9B9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <path d="M0 74H800" stroke="var(--c-orange)" stroke-width="3" stroke-linecap="round"></path>
+        <polyline points="0,110 160,110 160,96 320,96 320,86 480,86 480,82 640,82 640,88 800,88" fill="none" stroke="var(--c-green-c)" stroke-width="3" stroke-linejoin="round"></polyline>
+      </svg>
+      <p class="pricelegend">
+        <span><i style="border-top-color:#B9B9B9"></i>Marktprijs</span>
+        <span><i style="border-top-color:var(--c-orange)"></i>Vast tarief</span>
+        <span><i style="border-top-color:var(--c-green-c)"></i>Vastleggen in tranches</span>
+      </p>
+      <p class="t-micro ink-muted" style="margin-top:var(--sp-4)">Illustratief. Bedoeld om het verschil in gedrag te laten zien, niet om een prijs te voorspellen.</p>
+    </div>
+
+    <p style="margin-top:var(--sp-9)"><a class="link-arrow" href="../energie-inkopen/inkoopstrategie/index.html">Lees hoe wij een strategie voor u bepalen<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a></p>
+  </div>
+</section>
+
+<!-- 5 · WERKWIJZE -->
+<section class="section bg-green-a" id="werkwijze" aria-labelledby="werkwijze-title">
+  <div class="container">
+    <h2 class="t-h2 head-center head-to-lead" id="werkwijze-title">Zo koopt u met ons in.</h2>
+    <p class="t-lead ink-soft lead-center head-gap">Vijf stappen. U hoeft alleen bij de eerste en de vierde iets te doen.</p>
+    <ol class="steps steps--5">
+      <li class="step" data-reveal="">
+        <span class="step__num" aria-hidden="true">1</span>
+        <h3 class="step__title">Inventariseren</h3>
+        <p class="step__sub">Meterdata, contracten, einddata en opzegtermijnen op één plek.</p>
+      </li>
+      <li class="step" data-reveal="">
+        <span class="step__num" aria-hidden="true">2</span>
+        <h3 class="step__title">Doorrekenen</h3>
+        <p class="step__sub">Collectief naast individueel, en de drie strategieën naast elkaar.</p>
+      </li>
+      <li class="step" data-reveal="">
+        <span class="step__num" aria-hidden="true">3</span>
+        <h3 class="step__title">Onderhandelen</h3>
+        <p class="step__sub">Namens u, bij meerdere leveranciers, op hetzelfde moment.</p>
+      </li>
+      <li class="step" data-reveal="">
+        <span class="step__num" aria-hidden="true">4</span>
+        <h3 class="step__title">Overstappen</h3>
+        <p class="step__sub">Opzegging, machtiging en oplevering regelen wij; u zet één handtekening.</p>
+      </li>
+      <li class="step" data-reveal="">
+        <span class="step__num" aria-hidden="true">5</span>
+        <h3 class="step__title">Bewaken</h3>
+        <p class="step__sub">Einddata, marktmomenten en verbruik. Wij komen op tijd bij u terug.</p>
+      </li>
+    </ol>
+    <p class="notebar" style="margin-top:var(--sp-11)">
+      <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-handshake"></use></svg>
+      <span>De overstap zelf duurt zes tot acht weken en kost u geen dag zonder stroom of gas. <a href="../energie-inkopen/overstappen/index.html">Zo verloopt het oversluiten stap voor stap.</a></span>
+    </p>
+  </div>
+</section>
+
+<!-- 6 · MARKTMOMENT -->
+<section class="section--band bandline bg-white" aria-labelledby="markt-title">
+  <div class="container">
+    <div class="split">
+      <div>
+        <p class="t-eyebrow ink-muted" id="markt-title" style="margin-bottom:var(--sp-5)">Marktkalender</p>
+        <p class="t-h3" style="max-width:22ch">Wanneer u vastlegt bepaalt uw prijs.</p>
+      </div>
+      <div>
+        <p class="t-body ink-soft" style="max-width:52ch">De belangrijkste momenten van het jaar, wat ze historisch met de prijs doen, en hoe u zich erop voorbereidt zonder handelaar te worden.</p>
+        <p class="t-micro ink-muted" style="margin-top:var(--sp-4)">Pdf · 6 pagina's · direct in uw mailbox</p>
+        <button type="button" class="btn btn--secondary" style="margin-top:var(--sp-7)" sc-camel-on-click="{{ openDlMarkt }}">Stuur mij de marktkalender<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · GROOTVERBRUIK -->
+<section class="section bg-green-a" id="grootverbruik" aria-labelledby="gv-title">
+  <div class="container">
+    <h2 class="t-h2 head-to-lead" id="gv-title" style="max-width:22ch">Bij grootverbruik is uw aansluiting net zo belangrijk als uw tarief.</h2>
+    <div class="prose t-body ink-soft" style="margin-top:var(--sp-7)">
+      <p>Heeft u een grootverbruikaansluiting, dan betaalt u netbeheer over uw <strong style="color:var(--c-ink)">hoogste kwartierpiek</strong> van de maand. Eén ongelukkig moment waarop alles tegelijk aanstaat, bepaalt dan een kostenpost die u de rest van het jaar meesleept.</p>
+      <p>Dat maakt inkopen en verbruik onlosmakelijk. Wij kijken daarom altijd naar drie dingen tegelijk: uw leveringsprijs, uw contractcapaciteit en het profiel van uw pieken.</p>
+      <ul>
+        <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-gauge"></use></svg><span>Is uw contractcapaciteit nog passend, of betaalt u voor ruimte die u niet gebruikt?</span></li>
+        <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-trending-up"></use></svg><span>Kunnen we uw pieken verschuiven of afvlakken, en wat levert dat op aan netkosten?</span></li>
+        <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-plug"></use></svg><span>Wat betekent netcongestie voor uw plannen met elektrificatie en laden?</span></li>
+      </ul>
+      <p style="margin-top:var(--sp-7)"><a class="link-arrow" href="../energie-inkopen/grootverbruik/index.html">Naar energie inkopen voor grootverbruik<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a></p>
+      <p style="margin-top:var(--sp-3)"><a class="link-arrow" href="../energiemanagement/edge/index.html">Pieken zichtbaar maken met EDGE™<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · BEWIJS -->
+<section class="section bg-white" id="bewijs" aria-labelledby="bewijs-title">
+  <div class="container">
+    <h2 class="t-eyebrow ink-muted" id="bewijs-title" style="margin-bottom:var(--sp-5)">Klanten over onze inkoop</h2>
+    <figure>
+      <blockquote class="bigquote">“Het werd helder uitgelegd en er werd gekeken naar wat bij ons bedrijf past.”</blockquote>
+      <figcaption class="bigquote__wie">
+        <span class="avatar" aria-hidden="true">VH</span>
+        <span>Autobedrijf Van den Heuvel, familiebedrijf · Vorstenbosch</span>
+        <a class="link-arrow link-arrow--sm" href="../klantcases/zekerheid-en-overzicht-in-energiebeheer-voor-autobedrijven/index.html">Lees de klantcase<svg class="arrow" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
+      </figcaption>
+    </figure>
+
+    <div class="herostats" style="margin-top:var(--sp-11)">
+      <div><span class="hstat__v">65.000+</span><span class="hstat__l">bedrijven vertrouwden hun energie aan ons toe</span></div>
+      <div><span class="hstat__v">1.000+</span><span class="hstat__l">bedrijven in het inkoopcollectief</span></div>
+      <div><span class="hstat__v">4,5 / 5</span><span class="hstat__l"><a href="https://nl.trustpilot.com/review/www.edepartment.nl" target="_blank" rel="noopener noreferrer">op Trustpilot<span class="visually-hidden"> (opent in een nieuw tabblad)</span></a></span></div>
+    </div>
+
+    <div class="proof-split" aria-hidden="true"></div>
+
+    <h3 class="t-eyebrow ink-muted" style="margin-bottom:var(--sp-5)">Waarop u ons kunt afrekenen</h3>
+    <ul class="cert-list">
+      <li class="cert-item"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-scale"></use></svg><span><strong style="color:var(--c-ink)">Onafhankelijk.</strong> Wij zijn geen leverancier en verdienen niets aan uw verbruik.</span></li>
+      <li class="cert-item"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-users"></use></svg><span><strong style="color:var(--c-ink)">Meerdere leveranciers.</strong> Wij vragen altijd bij meerdere partijen een prijs op, nooit bij één vaste.</span></li>
+      <li class="cert-item"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-euro"></use></svg><span><strong style="color:var(--c-ink)">Transparant.</strong> U weet vooraf waaruit onze vergoeding bestaat; het staat in uw voorstel.</span></li>
+      <li class="cert-item"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-lock"></use></svg><span><strong style="color:var(--c-ink)">Betrouwbaar.</strong> Uw meterdata blijven binnen de EU en worden nooit doorverkocht.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9 · ONDERLIGGENDE PAGINA'S -->
+<section class="section bg-green-a" id="verder" aria-labelledby="verder-title">
+  <div class="container">
+    <h2 class="t-h2 head-to-lead" id="verder-title">Verder lezen over inkopen.</h2>
+    <p class="t-lead ink-soft" style="max-width:56ch;margin-bottom:var(--sp-8)">Vijf pagina's die elk één vraag beantwoorden.</p>
+    <div style="display:flex;flex-direction:column">
+      <a class="pagerow" href="../energie-inkopen/collectief/index.html">
+        <span class="pagerow__t">Collectief inkopen</span>
+        <span class="pagerow__s">Hoe duizend bedrijven samen een prijs bedingen die u alleen niet krijgt, en wat u ervoor moet regelen.</span>
+        <svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <a class="pagerow" href="../energie-inkopen/individueel/index.html">
+        <span class="pagerow__t">Individueel inkopen</span>
+        <span class="pagerow__s">Een eigen tender voor grootverbruikers: welke leveranciers, welke momenten en welke voorwaarden.</span>
+        <svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <a class="pagerow" href="../energie-inkopen/inkoopstrategie/index.html">
+        <span class="pagerow__t">Inkoopstrategie</span>
+        <span class="pagerow__s">Vast, variabel of tranches: hoe u kiest op basis van uw begroting in plaats van uw onderbuik.</span>
+        <svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <a class="pagerow" href="../energie-inkopen/overstappen/index.html">
+        <span class="pagerow__t">Overstappen en oversluiten</span>
+        <span class="pagerow__s">Opzegtermijnen, machtigingen en de zes tot acht weken die een overstap duurt.</span>
+        <svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <a class="pagerow" href="../energie-inkopen/grootverbruik/index.html">
+        <span class="pagerow__t">Grootverbruik en netkosten</span>
+        <span class="pagerow__s">Capaciteitstarief, kwartierpieken en netcongestie: waar bij grote aansluitingen het echte geld zit.</span>
+        <svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · VOORSTEL -->
+<section class="section bg-dark-c on-dark" id="intake" aria-labelledby="voorstel-title">
+  <div class="container">
+    <div class="split split--57">
+      <div>
+        <h2 class="t-h2" id="voorstel-title" style="color:var(--c-white);margin-bottom:var(--sp-7);max-width:22ch">Vraag een vrijblijvend voorstel.</h2>
+        <p class="t-lead on-dark-soft" style="max-width:42ch">Op basis van uw eigen meterdata, niet op basis van een gemiddelde.</p>
+        <ul style="display:flex;flex-direction:column;gap:var(--sp-4);margin-top:var(--sp-10)">
+          <li style="display:flex;gap:var(--sp-3);align-items:flex-start"><svg width="22" height="22" style="color:var(--c-orange);flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg><span class="t-small on-dark-soft">Collectief én individueel doorgerekend, in euro's</span></li>
+          <li style="display:flex;gap:var(--sp-3);align-items:flex-start"><svg width="22" height="22" style="color:var(--c-orange);flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg><span class="t-small on-dark-soft">De drie strategieën naast elkaar op uw profiel</span></li>
+          <li style="display:flex;gap:var(--sp-3);align-items:flex-start"><svg width="22" height="22" style="color:var(--c-orange);flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg><span class="t-small on-dark-soft">Onze vergoeding zwart op wit, vooraf</span></li>
+        </ul>
+        <div class="adviser">
+          <img class="adviser__portrait" src="../assets/photos/adviser-portrait.webp" width="480" height="600" loading="lazy" decoding="async" alt="Energieadviseur van Energy Department">
+          <div class="adviser__body">
+            <p class="t-eyebrow on-dark-muted">Uw vaste aanspreekpunt</p>
+            <p class="adviser__quote">“Stuur mij uw laatste jaarnota en uw einddatum. Daarmee kan ik u binnen een week een echt voorstel geven.”</p>
+            <p class="t-small on-dark-muted">Energieadviseur, Amstelveen</p>
+            <div class="adviser__contact">
+              <a class="adviser__tel" href="tel:+31202209090"><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>+31 20 220 90 90</a>
+              <span class="t-micro on-dark-muted">Liever direct bellen? Ma t/m vr, 9.00 tot 17.30 uur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Koppel dit formulier aan het CRM-/formulierendpunt van Energy Department. -->
+      <form id="form" class="form-card" method="post" action="/contact#form" novalidate="true" sc-camel-on-submit="{{ onSubmit }}">
+        <div class="step-body" style="min-height:0" hidden="{{ hideForm }}">
+          <h3 class="t-h3" id="form-legend" tabindex="-1" style="margin-bottom:var(--sp-2)">Uw gegevens</h3>
+          <p class="t-small ink-muted" style="margin-bottom:var(--sp-7)">Vier velden. De rest zoeken wij op.</p>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="website-veld">Laat dit veld leeg</label>
+            <input id="website-veld" type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="veld-bedrijfsnaam">Bedrijfsnaam</label>
+            <input class="field__control" id="veld-bedrijfsnaam" type="text" name="bedrijfsnaam" autocomplete="organization" aria-invalid="{{ invBedrijf }}" aria-describedby="fout-bedrijfsnaam" sc-camel-on-blur="{{ revalidate }}">
+            <sc-if value="{{ errBedrijf }}" hint-placeholder-val="{{ false }}">
+              <p class="field__error" id="fout-bedrijfsnaam" role="alert"><svg width="16" height="16" style="flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>Vul de naam van uw organisatie in.</p>
+            </sc-if>
+          </div>
+          <div class="field">
+            <label class="field__label" for="veld-email">Zakelijk e-mailadres</label>
+            <input class="field__control" id="veld-email" type="email" name="email" autocomplete="email" sc-camel-input-mode="email" placeholder="naam@bedrijf.nl" aria-invalid="{{ invEmail }}" aria-describedby="fout-email" sc-camel-on-blur="{{ revalidate }}">
+            <sc-if value="{{ errEmailShow }}" hint-placeholder-val="{{ false }}">
+              <p class="field__error" id="fout-email" role="alert"><svg width="16" height="16" style="flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>{{ errEmail }}</p>
+            </sc-if>
+          </div>
+          <div class="field">
+            <label class="field__label" for="veld-verbruik">Geschat jaarverbruik elektriciteit</label>
+            <span class="field__hint" id="hint-verbruik">Een schatting is voldoende.</span>
+            <sc-raw-select class="field__control" id="veld-verbruik" name="verbruik" aria-invalid="{{ invVerbruik }}" aria-describedby="hint-verbruik fout-verbruik" sc-camel-default-value="" sc-camel-on-blur="{{ revalidate }}">
+              <option value="">Kies een bereik</option>
+              <option value="Minder dan 50.000 kWh">Minder dan 50.000 kWh</option>
+              <option value="50.000 kWh - 1 miljoen kWh">50.000 kWh – 1 miljoen kWh</option>
+              <option value="Meer dan 1 miljoen kWh">Meer dan 1 miljoen kWh</option>
+              <option value="Weet ik niet">Weet ik niet</option>
+            </sc-raw-select>
+            <sc-if value="{{ errVerbruik }}" hint-placeholder-val="{{ false }}">
+              <p class="field__error" id="fout-verbruik" role="alert"><svg width="16" height="16" style="flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>Kies een bereik of kies 'Weet ik niet'.</p>
+            </sc-if>
+          </div>
+          <div class="field">
+            <label class="field__label" for="veld-einddatum">Einddatum huidig contract <span class="ink-muted" style="font-weight:400">(optioneel)</span></label>
+            <span class="field__hint" id="hint-einddatum">Bijvoorbeeld 31-12-2027. Weet u het niet? Wij zoeken het op.</span>
+            <input class="field__control" id="veld-einddatum" type="text" name="einddatum" aria-describedby="hint-einddatum">
+          </div>
+          <div class="field">
+            <label class="field__label" for="veld-telefoon">Telefoonnummer <span class="ink-muted" style="font-weight:400">(optioneel)</span></label>
+            <input class="field__control" id="veld-telefoon" type="tel" name="telefoon" autocomplete="tel" sc-camel-input-mode="tel">
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width:100%">Vraag mijn voorstel aan<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></button>
+          <p class="t-small ink-muted" style="margin-top:var(--sp-4)">Wij nemen binnen 1 werkdag contact op. Uw gegevens worden nooit gedeeld met derden. <a href="../juridisch/index.html">Lees onze privacyverklaring</a>.</p>
+        </div>
+
+        <div class="step-body" role="status" style="min-height:0;align-items:flex-start" hidden="{{ hideSuccess }}">
+          <svg width="64" height="64" style="color:var(--c-success);margin-bottom:var(--sp-7)" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg>
+          <h3 class="t-h3" id="form-success-title" tabindex="-1" style="margin-bottom:var(--sp-4)">Bedankt, uw aanvraag is verzonden.</h3>
+          <p class="t-small ink-soft" style="max-width:40ch">Een van onze adviseurs neemt binnen 1 werkdag contact met u op. Heeft u uw laatste jaarnota bij de hand? Dan gaat het nog sneller.</p>
+          <div style="margin-top:var(--sp-8)">
+            <a class="btn btn--secondary" href="../energie-inkopen/inkoopstrategie/index.html">Lees ondertussen over inkoopstrategie</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · FAQ -->
+<section class="section bg-green-a" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <h2 class="t-h2 head-center head-gap" id="faq-title">Veelgestelde vragen.</h2>
+    <div class="faq">
+      <details class="faq__item" id="faq-1">
+        <summary class="faq__q">Hoeveel kan ik besparen met collectief inkopen?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">Door de inkoopkracht van ons collectief van meer dan 1.000 bedrijven bespaart u {{ voordeel }} op het leveringsdeel van uw rekening. Hoeveel het in uw geval is, hangt af van uw volume, uw verbruiksprofiel en het moment waarop u vastlegt. In het voorstel staat het bedrag, niet het percentage.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Bent u een energieleverancier?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">Nee. Wij leveren geen energie en verdienen niets aan uw verbruik. Wij vragen namens u bij meerdere leveranciers een prijs op en blijven daardoor onafhankelijk in ons advies.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Wat kost het om via Energy Department in te kopen?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">U weet vooraf precies wat u betaalt en waaruit onze vergoeding bestaat; het staat zwart op wit in uw voorstel. Aan het aanvragen en vergelijken zelf zijn geen kosten verbonden.</p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Kan ik mijn huidige contract nu al oversluiten?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">Vaak wel. De meeste zakelijke contracten kunt u ver voor de einddatum al vastleggen voor de volgende periode. Wij noteren uw einddatum en opzegtermijn en komen op tijd bij u terug, zodat u nooit in een duur variabel vangnettarief valt. <a href="../energie-inkopen/overstappen/index.html">Zo verloopt het oversluiten.</a></p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Is vast of variabel nu slim?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">Dat hangt af van hoeveel prijsschommeling uw begroting kan dragen. Vast geeft zekerheid tegen een risicopremie, variabel volgt de markt, en vastleggen in tranches spreidt het risico over meerdere momenten. Wij rekenen alle drie door op uw eigen verbruiksprofiel. <a href="../energie-inkopen/inkoopstrategie/index.html">Meer over inkoopstrategie.</a></p>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Werkt dit ook voor kleinverbruikaansluitingen?<svg class="faq__chev" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg></summary>
+        <p class="faq__a t-small">Ja. Ook met meerdere kleinverbruikaansluitingen, bijvoorbeeld bij winkels, horeca of vastgoed, kunt u meedoen in het collectief. Wij bundelen uw aansluitingen tot één volume en één contractmoment.</p>
+      </details>
+    </div>
+    <p class="t-small ink-soft" style="text-align:center;margin-top:var(--sp-head)">Staat uw vraag er niet bij? <a href="../contact/index.html#form">Neem contact op</a></p>
+  </div>
+</section>
+</main>
+
+<!-- 14 · INTERNE-LINKHUB -->
+<section class="hub" aria-labelledby="hub-title">
+  <div class="container">
+    <h2 class="t-h3" id="hub-title" style="margin-bottom:var(--sp-8)">Direct naar wat u zoekt.</h2>
+    <div class="hub-grid hub-grid--vijf">
+      <nav aria-label="Sectoren">
+        <p class="hub-title">Per sector</p>
+        <div class="hub-list">
+          <a href="../sectoren/horeca/index.html">Energie voor de horeca</a>
+          <a href="../sectoren/vastgoed/index.html">Vastgoed en VvE</a>
+          <a href="../sectoren/industrie/index.html">Industrie en productie</a>
+          <a href="../sectoren/retail/index.html">Retail en winkels</a>
+          <a href="../sectoren/zorg/index.html">Zorg en welzijn</a>
+          <a href="../sectoren/onderwijs/index.html">Onderwijs</a>
+          <a href="../sectoren/transport-logistiek/index.html">Transport en logistiek</a>
+          <a href="../sectoren/agrarisch/index.html">Agrarisch en glastuinbouw</a>
+          <a href="../sectoren/kantoren/index.html">Kantoren en dienstverlening</a>
+          <a href="../sectoren/sport-leisure/index.html">Sport en leisure</a>
+          <a href="../sectoren/index.html">Alle sectoren</a>
+        </div>
+      </nav>
+      <nav aria-label="Energie inkopen">
+        <p class="hub-title">Energie inkopen</p>
+        <div class="hub-list">
+          <a href="../energie-inkopen/index.html">Zakelijke energie inkopen</a>
+          <a href="../energie-inkopen/collectief/index.html">Collectief inkopen met 1.000+ bedrijven</a>
+          <a href="../energie-inkopen/individueel/index.html">Individueel inkopen</a>
+          <a href="../energie-inkopen/inkoopstrategie/index.html">Vast, variabel of tranches</a>
+          <a href="../energie-inkopen/overstappen/index.html">Contract oversluiten</a>
+          <a href="../energie-inkopen/grootverbruik/index.html">Grootverbruik en netkosten</a>
+        </div>
+      </nav>
+      <nav aria-label="Plichten en regels">
+        <p class="hub-title">Plichten en regels</p>
+        <div class="hub-list">
+          <a href="../energiebesparingsplicht/index.html">Energiebesparingsplicht uitbesteden</a>
+          <a href="../energiebesparingsplicht/informatieplicht/index.html">Informatieplicht energiebesparing</a>
+          <a href="../energiebesparingsplicht/onderzoeksplicht/index.html">Onderzoeksplicht</a>
+          <a href="../energiebesparingsplicht/eed-audit/index.html">EED-auditplicht</a>
+          <a href="../energiebesparingsplicht/erkende-maatregelen/index.html">Erkende Maatregelenlijst</a>
+          <a href="../advies-begeleiding/energielabel/index.html">Energielabel C voor kantoren</a>
+          <a href="../blog/terugverdientijd-naar-zeven-jaar-meer-maatregelen-verplicht/index.html">Terugverdientijd naar zeven jaar</a>
+        </div>
+      </nav>
+      <nav aria-label="Advies en meten">
+        <p class="hub-title">Advies en meten</p>
+        <div class="hub-list">
+          <a href="../advies-begeleiding/index.html">Advies &amp; begeleiding</a>
+          <a href="../advies-begeleiding/energiescan/index.html">Energiescan op locatie</a>
+          <a href="../advies-begeleiding/subsidie/index.html">Subsidie en fiscale regelingen</a>
+          <a href="../advies-begeleiding/verduurzamingsplan/index.html">Verduurzamingsplan</a>
+          <a href="../energiemanagement/index.html">Energiemanagement met EMS en EBS</a>
+          <a href="../energiemanagement/edge/index.html">EDGE™, realtime grip op energie</a>
+          <a href="../energiemanagement/monitoring/index.html">Monitoring en pieken</a>
+          <a href="../energiemanagement/ebs-rapportage/index.html">EBS-rapportage</a>
+        </div>
+      </nav>
+      <nav aria-label="Kennis en bedrijf">
+        <p class="hub-title">Kennis en bedrijf</p>
+        <div class="hub-list">
+          <a href="../energieprofiel/index.html">Energieprofiel in 2 minuten</a>
+          <a href="../maatregelen/index.html">Maatregelen doorrekenen</a>
+          <a href="../kennisbank/index.html">Kennisbank en downloads</a>
+          <a href="../energiebegrippen/index.html">Alle energiebegrippen</a>
+          <a href="../klantcases/index.html">Klantcases</a>
+          <a href="../nieuws-inzichten/index.html">Nieuws en inzichten</a>
+          <a href="../over-ons/index.html">Over Energy Department</a>
+          <a href="../contact/index.html">Contact en gratis intake</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/logo-footer.png" alt="Energy Department" width="178" height="40" loading="lazy" decoding="async" style="height:40px;width:auto;margin-bottom:var(--sp-5)">
+        <p class="t-body" style="color:var(--c-white);font-weight:500;margin-bottom:var(--sp-6)">Samen besparen we meer.</p>
+        <address style="font-style:normal" class="t-small on-dark-soft">
+          <p>Energy Department BV</p>
+          <p>Stroombaan 6-8</p>
+          <p style="margin-bottom:var(--sp-3)">1181 VX Amstelveen</p>
+          <a class="footer-link" href="tel:+31202209090"><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>+31 20 220 90 90</a><br>
+          <a class="footer-link" href="mailto:info@edepartment.nl"><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>info@edepartment.nl</a>
+        </address>
+      </div>
+      <nav aria-label="Onze diensten">
+        <p class="footer-title">Onze diensten</p>
+        <ul style="display:flex;flex-direction:column">
+          <li><a class="footer-link" href="../energie-inkopen/index.html">Energie inkopen</a></li>
+          <li><a class="footer-link" href="../energiebesparingsplicht/index.html">Energiebesparingsplicht</a></li>
+          <li><a class="footer-link" href="../advies-begeleiding/index.html">Advies &amp; begeleiding</a></li>
+          <li><a class="footer-link" href="../energiemanagement/index.html">Energiemanagement</a></li>
+          <li><a class="footer-link" href="../energiemanagement/edge/index.html">EDGE™</a></li>
+          <li><a class="footer-link" href="../sectoren/index.html">Sectoren</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Kennis">
+        <p class="footer-title">Kennis</p>
+        <ul style="display:flex;flex-direction:column">
+          <li><a class="footer-link" href="../kennisbank/index.html">Kennisbank en downloads</a></li>
+          <li><a class="footer-link" href="../nieuws-inzichten/nieuws/index.html">Nieuws</a></li>
+          <li><a class="footer-link" href="../nieuws-inzichten/inzichten/index.html">Inzichten</a></li>
+          <li><a class="footer-link" href="../klantcases/index.html">Klantcases</a></li>
+          <li><a class="footer-link" href="../energiebegrippen/index.html">Energiebegrippen</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Over ons">
+        <p class="footer-title">Over ons</p>
+        <ul style="display:flex;flex-direction:column">
+          <li><a class="footer-link" href="../over-ons/index.html">Over Energy Department</a></li>
+          <li><a class="footer-link" href="../contact/index.html#form">Contact</a></li>
+          <li><a class="footer-link" href="../werken-bij/index.html">Werken bij</a></li>
+          <li><a class="footer-link" href="../partner-worden/index.html">Partner worden</a></li>
+          <li><a class="footer-link" href="../juridisch/index.html">Juridisch</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Support">
+        <p class="footer-title">Support</p>
+        <ul style="display:flex;flex-direction:column">
+          <li><a class="footer-link" href="../contact/index.html#form">Klantenservice</a></li>
+          <li><a class="footer-link" href="../contact/index.html#faq">Veelgestelde vragen</a></li>
+          <li><a class="footer-link" href="https://ebs.edepartment.nl/" target="_blank" rel="noopener noreferrer">Mijn EBS<svg width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span class="visually-hidden">(opent in een nieuw tabblad)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="t-small on-dark-muted">© 2026 Energy Department</p>
+      <div style="display:flex;align-items:center;gap:var(--sp-6);flex-wrap:wrap">
+        <a class="footer-link" href="https://www.linkedin.com/company/energy-department-bv/" target="_blank" rel="noopener noreferrer" aria-label="Energy Department op LinkedIn"><img src="../assets/icons/social-linkedin.svg" width="28" height="28" loading="lazy" decoding="async" alt="" style="display:block"><span class="visually-hidden">(opent in een nieuw tabblad)</span></a>
+        <a class="footer-link" href="https://nl.trustpilot.com/review/www.edepartment.nl" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-star"></use></svg>4,5 / 5 op Trustpilot<span class="visually-hidden">(opent in een nieuw tabblad)</span></a>
+      </div>
+      <a class="footer-link" href="#top">Naar boven<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow-up"></use></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta" data-show="false">
+  <div class="mobile-cta__row">
+    <a class="btn btn--icon" href="tel:+31202209090" aria-label="Bel Energy Department op +31 20 220 90 90">
+      <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>
+    </a>
+    <a class="btn btn--primary" href="#intake">Vraag een voorstel</a>
+  </div>
+</div>
+
+<!-- E-mailgate: één dialog voor alle downloads op de pagina. -->
+<sc-if value="{{ gateOpen }}" hint-placeholder-val="{{ false }}">
+  <div class="gate-scrim" sc-camel-on-click="{{ onScrimClick }}">
+    <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="{{ gateLabelId }}" sc-camel-on-click="{{ stopProp }}" sc-camel-on-key-down="{{ onGateKey }}">
+      <button type="button" class="gate-close" aria-label="Sluiten" sc-camel-on-click="{{ closeGate }}">
+        <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>
+      </button>
+
+      <sc-if value="{{ gateForm }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <p class="t-eyebrow ink-muted" style="margin-bottom:var(--sp-3)">{{ gateType }}</p>
+          <h2 class="t-h3" id="gate-title" tabindex="-1" style="max-width:24ch">{{ gateTitel }}</h2>
+          <p class="t-small ink-soft" style="margin-top:var(--sp-4);max-width:46ch">{{ gateSub }}</p>
+
+          <ul class="gate-list">
+            <sc-for list="{{ gatePunten }}" as="p" hint-placeholder-count="3">
+              <li><svg width="18" height="18" style="flex:none;margin-top:2px;color:var(--c-orange-text)" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg>{{ p }}</li>
+            </sc-for>
+          </ul>
+
+          <form novalidate="true" sc-camel-on-submit="{{ onGateSubmit }}">
+            <div class="honeypot" aria-hidden="true">
+              <label for="gate-website">Laat dit veld leeg</label>
+              <input id="gate-website" type="text" name="gatewebsite" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label class="field__label" for="gate-email">Zakelijk e-mailadres</label>
+              <input class="field__control" id="gate-email" type="email" name="gateemail" autocomplete="email" sc-camel-input-mode="email" placeholder="naam@bedrijf.nl" aria-invalid="{{ invGateMail }}" aria-describedby="fout-gate-email">
+              <sc-if value="{{ errGateMailShow }}" hint-placeholder-val="{{ false }}">
+                <p class="field__error" id="fout-gate-email" role="alert"><svg width="16" height="16" style="flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>{{ errGateMail }}</p>
+              </sc-if>
+            </div>
+            <div class="field">
+              <label class="field__label" for="gate-bedrijf">Bedrijfsnaam <span class="ink-muted" style="font-weight:400">(optioneel)</span></label>
+              <span class="field__hint" id="hint-gate-bedrijf">Zo sturen we meteen de juiste versie mee.</span>
+              <input class="field__control" id="gate-bedrijf" type="text" name="gatebedrijf" autocomplete="organization" aria-describedby="hint-gate-bedrijf">
+            </div>
+            <button type="submit" class="btn btn--primary" style="width:100%;margin-top:var(--sp-3)">{{ gateKnop }}<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></button>
+          </form>
+
+          <div class="gate-trust">
+            <span><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-lock"></use></svg>Nooit gedeeld met derden</span>
+            <span><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>Afmelden met één klik</span>
+            <span><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-users"></use></svg>65.000+ bedrijven kozen Energy Department</span>
+          </div>
+          <p class="t-micro ink-muted" style="margin-top:var(--sp-4)">Door te versturen gaat u akkoord met onze <a href="../juridisch/index.html">privacyverklaring</a>.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ gateDone }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="padding-block:var(--sp-3)">
+          <div style="text-align:center">
+            <svg width="52" height="52" style="color:var(--c-success);margin:0 auto var(--sp-5)" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg>
+            <h2 class="t-h3" id="gate-done-title" tabindex="-1">Onderweg naar uw mailbox.</h2>
+            <p class="t-small ink-soft" style="margin-top:var(--sp-4);max-width:38ch;margin-inline:auto">{{ gateDoneSub }}</p>
+          </div>
+
+          <sc-if value="{{ belForm }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--c-line)">
+              <p class="t-small" style="font-weight:600">{{ belVraag }}</p>
+              <p class="t-small ink-soft" style="margin-top:var(--sp-2);max-width:44ch">Laat uw nummer achter en een adviseur rekent het door voor uw eigen situatie. Eén gesprek van vijftien minuten, geen verkooppraat.</p>
+              <form novalidate="true" sc-camel-on-submit="{{ onBelSubmit }}" style="margin-top:var(--sp-5)">
+                <div class="mini__row">
+                  <div class="field" style="margin:0">
+                    <label class="field__label visually-hidden" for="gate-tel">Telefoonnummer</label>
+                    <input class="field__control" id="gate-tel" type="tel" name="gatetel" autocomplete="tel" sc-camel-input-mode="tel" placeholder="Uw telefoonnummer" aria-invalid="{{ invBel }}" aria-describedby="fout-gate-tel">
+                    <sc-if value="{{ errBelShow }}" hint-placeholder-val="{{ false }}">
+                      <p class="field__error" id="fout-gate-tel" role="alert"><svg width="16" height="16" style="flex:none;margin-top:3px" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>{{ errBel }}</p>
+                    </sc-if>
+                  </div>
+                  <button type="submit" class="btn btn--primary">Bel mij terug<svg class="arrow" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></button>
+                </div>
+                <p class="t-micro ink-muted" style="display:flex;align-items:center;gap:6px;margin-top:var(--sp-4)"><svg width="14" height="14" style="flex:none" aria-hidden="true" focusable="false"><use href="#i-lock"></use></svg>Wij bellen één keer. Geen belbestand, geen herhaalpogingen.</p>
+              </form>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ belKlaar }}" hint-placeholder-val="{{ false }}">
+            <p class="t-small ink-soft" style="display:flex;gap:var(--sp-3);align-items:flex-start;margin-top:var(--sp-7);padding-top:var(--sp-6);border-top:1px solid var(--c-line)">
+              <svg width="20" height="20" style="flex:none;margin-top:2px;color:var(--c-success)" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg>
+              <span>Genoteerd. Een adviseur belt u binnen 1 werkdag, tussen 9.00 en 17.30 uur.</span>
+            </p>
+          </sc-if>
+
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-7)">
+            <button type="button" class="btn btn--secondary" sc-camel-on-click="{{ closeGate }}">Sluiten en verder lezen</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1000},&quot;voordeelPercentage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;tot 30%&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Inhoud&quot;},&quot;downloadAantal&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Inhoud&quot;},&quot;faqEersteOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Inhoud&quot;}}">
+const AANBOD = {
+  markt: {
+    type: 'Marktkalender · pdf · 6 pagina\u2019s',
+    titel: 'Marktkalender voor energie-inkoop',
+    sub: 'De momenten van het jaar die uw prijs bepalen, en hoe u zich erop voorbereidt.',
+    punten: ['Welke momenten historisch het verschil maken', 'Waar u op let bij vast, variabel en tranches', 'Een invulblad voor uw eigen einddata'],
+    knop: 'Stuur mij de marktkalender',
+    doneSub: 'De marktkalender is onderweg naar uw mailbox.'
+  },
+  tender: {
+    type: 'Model · pdf · 12 pagina\u2019s',
+    titel: 'Modeluitvraag voor een energietender',
+    sub: 'De uitvraag die wij zelf gebruiken, met de voorwaarden waarop leveranciers pas echt vergelijkbaar worden.',
+    punten: ['Alle prijscomponenten los uitgevraagd', 'Clausules voor profielafwijking en onbalans', 'Een vergelijkingsblad op totale kosten'],
+    knop: 'Stuur mij de modeluitvraag',
+    doneSub: 'De modeluitvraag is onderweg naar uw mailbox.'
+  },
+  piek: {
+    type: 'Werkblad · pdf · 4 pagina\u2019s',
+    titel: 'Werkblad piekvermogen en netkosten',
+    sub: 'Reken uit wat één kwartierpiek u per jaar kost, en wat afvlakken zou opleveren.',
+    punten: ['Uw contractcapaciteit naast uw werkelijke piek', 'Wat een piek doet met uw netbeheerkosten', 'Vier manieren om te vlakken, met hun effect'],
+    knop: 'Stuur mij het werkblad',
+    doneSub: 'Het werkblad piekvermogen is onderweg.'
+  },
+  overstap: {
+    type: 'Checklist · pdf · 2 pagina\u2019s',
+    titel: 'Checklist contract oversluiten',
+    sub: 'Alles wat u nodig heeft voordat u een nieuw energiecontract ondertekent.',
+    punten: ['Welke gegevens u bij de hand moet hebben', 'Waar opzegtermijnen in de praktijk fout gaan', 'De zes tot acht weken van een overstap, week voor week'],
+    knop: 'Stuur mij de checklist',
+    doneSub: 'De checklist voor het oversluiten is onderweg.'
+  }
+};
+
+class Component extends DCLogic {
+  state = {
+    ready: false, menuOpen: false, dd: null,
+    gate: null, gateDone: false, gateErr: '',
+    belErr: '', belKlaar: false,
+    submitted: false, errors: {}
+  };
+
+  get reduced() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  ga(naam, params) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', naam, params || {});
+      else { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: naam }, params || {})); }
+    } catch (err) { /* meten mag nooit de pagina breken */ }
+  }
+
+  geldigMail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  zone(el) {
+    const s = el.closest && el.closest('section[id], header, footer, .mobile-cta, .gate-card');
+    if (!s) return 'onbekend';
+    return s.id || (s.tagName ? s.tagName.toLowerCase() : 'onbekend');
+  }
+
+  componentDidMount() {
+    document.documentElement.classList.add('js');
+    document.documentElement.lang = 'nl';
+    document.title = 'Zakelijke energie inkopen | Energy Department';
+    this.setState({ ready: true });
+    this.initHeader();
+    this.initReveals();
+    this.initMobileCta();
+    const faq1 = document.getElementById('faq-1');
+    if (faq1 && (this.props.faqEersteOpen ?? true)) faq1.open = true;
+
+    this._onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (this.state.gate) { this.closeGate(); return; }
+      if (this.state.menuOpen) { this.setState({ menuOpen: false }); document.body.style.overflow = ''; const b = document.querySelector('.burger'); if (b) b.focus(); }
+      if (this.state.dd) this.setState({ dd: null });
+    };
+    this._onClick = (e) => {
+      if (this.state.dd && (!e.target.closest || !e.target.closest('.nav-item'))) this.setState({ dd: null });
+    };
+    this._onCta = (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      if (href === '#intake') this.ga('cta_click', { cta: 'voorstel', positie: this.zone(a) });
+      else if (href.indexOf('tel:') === 0) this.ga('cta_click', { cta: 'telefoon', positie: this.zone(a) });
+      else if (href.indexOf('/energie-inkopen/') === 0) this.ga('nav_click', { doel: href });
+    };
+    document.addEventListener('keydown', this._onKey);
+    document.addEventListener('click', this._onClick);
+    document.addEventListener('click', this._onCta);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._onKey);
+    document.removeEventListener('click', this._onClick);
+    document.removeEventListener('click', this._onCta);
+    document.body.style.overflow = '';
+    if (this._focusTimer) clearInterval(this._focusTimer);
+    this.zetAchtergrondInert(false);
+    (this._obs || []).forEach((o) => o.disconnect());
+  }
+
+  track(o) { (this._obs = this._obs || []).push(o); return o; }
+
+  initHeader() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const s = document.createElement('div');
+    s.setAttribute('aria-hidden', 'true');
+    s.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:40px;pointer-events:none';
+    header.parentNode.insertBefore(s, header);
+    this.track(new IntersectionObserver(([e]) => {
+      document.documentElement.classList.toggle('is-scrolled', !e.isIntersecting);
+    }, { threshold: 0 })).observe(s);
+  }
+
+  initReveals() {
+    const items = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!items.length) return;
+    if (this.reduced) { items.forEach((el) => el.setAttribute('data-in', '1')); return; }
+    const io = this.track(new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const sibs = Array.from(entry.target.parentNode.children).filter((c) => c.hasAttribute('data-reveal'));
+        entry.target.style.transitionDelay = (Math.min(sibs.indexOf(entry.target), 4) * 60) + 'ms';
+        entry.target.setAttribute('data-in', '1');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -60px 0px' }));
+    items.forEach((el) => io.observe(el));
+  }
+
+  initMobileCta() {
+    const bar = document.querySelector('.mobile-cta');
+    const hero = document.querySelector('.section.bg-green-a');
+    const doel = document.getElementById('voorstel');
+    if (!bar || !hero) return;
+    const st = { past: false, at: false };
+    const apply = () => bar.setAttribute('data-show', String(st.past && !st.at));
+    this.track(new IntersectionObserver(([e]) => { st.past = !e.isIntersecting; apply(); }, { threshold: 0 })).observe(hero);
+    if (doel) this.track(new IntersectionObserver(([e]) => { st.at = e.isIntersecting; apply(); }, { threshold: 0 })).observe(doel);
+  }
+
+  // ── E-mailgate ──
+  ACHTERGROND = '.skip-link, .site-header, #main, .hub, .site-footer, .mobile-cta';
+
+  zetAchtergrondInert(aan) {
+    document.querySelectorAll(this.ACHTERGROND).forEach((el) => {
+      if (aan) { el.setAttribute('inert', ''); el.setAttribute('aria-hidden', 'true'); }
+      else { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); }
+    });
+  }
+
+  focusInGate(id) {
+    /* Bewust op timers en niet op requestAnimationFrame: in een niet-tekenend
+       venster (achtergrondtab, ingebedde weergave) vuurt rAF niet, en dan zou
+       de focus nooit in de dialog landen. De lus houdt de focus vast zolang hij
+       buiten de dialog staat, omdat React de sc-if-subtree na onze eerste
+       .focus() nog kan vervangen. Focust de gebruiker zelf binnen de dialog,
+       dan laten wij het over aan hem. */
+    if (this._focusTimer) { clearInterval(this._focusTimer); this._focusTimer = null; }
+    let poging = 0;
+    const binnenDialog = () => {
+      const a = document.activeElement;
+      return !!(a && a.closest && a.closest('.gate-card'));
+    };
+    const stop = () => { clearInterval(this._focusTimer); this._focusTimer = null; };
+    const zet = () => {
+      if (!document.querySelector('.gate-scrim')) { stop(); return; }
+      const el = document.getElementById(id);
+      if (el && !binnenDialog()) el.focus({ preventScroll: true });
+      if (++poging < 40) return;
+      stop();
+      if (binnenDialog()) return;
+      const kaart = document.querySelector('.gate-card');
+      if (kaart) { kaart.setAttribute('tabindex', '-1'); kaart.focus({ preventScroll: true }); }
+    };
+    zet();
+    if (!this._focusTimer && !binnenDialog()) this._focusTimer = setInterval(zet, 16);
+  }
+
+  componentDidUpdate() {
+    const open = !!this.state.gate;
+    const klaar = !!this.state.gateDone;
+    if (open !== this._gateWasOpen) {
+      this._gateWasOpen = open;
+      if (open) { this.zetAchtergrondInert(true); this.focusInGate('gate-email'); }
+      else { this.zetAchtergrondInert(false); }
+    }
+    if (open && klaar && !this._gateWasDone) { this._gateWasDone = true; this.focusInGate('gate-done-title'); }
+    if (!klaar) this._gateWasDone = false;
+  }
+
+  onGateKey = (e) => {
+    if (e.key !== 'Tab') return;
+    const card = document.querySelector('.gate-card');
+    if (!card) return;
+    const f = Array.from(card.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])'
+    )).filter((el) => el.offsetParent !== null);
+    if (!f.length) return;
+    const eerste = f[0];
+    const laatste = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === eerste) { e.preventDefault(); laatste.focus(); }
+    else if (!e.shiftKey && document.activeElement === laatste) { e.preventDefault(); eerste.focus(); }
+  };
+
+  openGate = (key) => {
+    this._gateTrigger = document.activeElement;
+    this._gateWasDone = false;
+    document.body.style.overflow = 'hidden';
+    this.setState({ gate: { key }, gateDone: false, gateErr: '', belErr: '', belKlaar: false });
+    this.ga('lead_magnet_open', { magnet: key });
+  };
+
+  closeGate = () => {
+    const t = this._gateTrigger;
+    this._gateWasDone = false;
+    this.setState({ gate: null, gateDone: false, gateErr: '', belErr: '', belKlaar: false }, () => {
+      document.body.style.overflow = '';
+      if (t && t.focus) t.focus();
+    });
+  };
+
+  onGateSubmit = (e) => {
+    e.preventDefault();
+    const hp = document.getElementById('gate-website');
+    if (hp && hp.value.trim()) return;
+    const el = document.getElementById('gate-email');
+    const v = el ? el.value.trim() : '';
+    if (!v) { this.setState({ gateErr: 'Vul uw e-mailadres in.' }); if (el) el.focus(); return; }
+    if (!this.geldigMail(v)) { this.setState({ gateErr: 'Dit e-mailadres lijkt niet te kloppen. Controleer het even.' }); if (el) el.focus(); return; }
+    this.ga('generate_lead', { magnet: (this.state.gate || {}).key, method: 'lead_magnet' });
+    this.setState({ gateErr: '', gateDone: true });
+  };
+
+  /* Het telefoonnummer wordt pas ná de download gevraagd. Een extra veld vóór
+     de download kost conversie; erna is de intentie het hoogst. */
+  onBelSubmit = (e) => {
+    e.preventDefault();
+    const el = document.getElementById('gate-tel');
+    const v = el ? el.value.trim() : '';
+    const cijfers = v.replace(/[^0-9]/g, '');
+    if (!v) { this.setState({ belErr: 'Vul uw telefoonnummer in.' }); if (el) el.focus(); return; }
+    if (cijfers.length < 9 || cijfers.length > 13) {
+      this.setState({ belErr: 'Dit nummer lijkt niet te kloppen. Controleer het even.' });
+      if (el) el.focus(); return;
+    }
+    this.ga('generate_lead', { magnet: (this.state.gate || {}).key, method: 'terugbelverzoek', value: 2 });
+    this.setState({ belErr: '', belKlaar: true });
+  };
+
+  onScrimClick = () => this.closeGate();
+  stopProp = (e) => e.stopPropagation();
+
+  // ── Voorstelformulier ──
+  field(n) { const el = document.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; }
+
+  validate() {
+    const e = {};
+    if (!this.field('bedrijfsnaam')) e.bedrijfsnaam = 1;
+    const m = this.field('email');
+    if (!m) e.email = 'Vul uw e-mailadres in.';
+    else if (!this.geldigMail(m)) e.email = 'Dit e-mailadres lijkt niet te kloppen. Controleer het even.';
+    if (!this.field('verbruik')) e.verbruik = 1;
+    return e;
+  }
+
+  revalidate = () => {
+    if (!Object.keys(this.state.errors).length) return;
+    this.setState({ errors: this.validate() });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    if (this.field('website')) return;
+    const errors = this.validate();
+    if (Object.keys(errors).length) {
+      this.setState({ errors }, () => {
+        const k = ['bedrijfsnaam', 'email', 'verbruik'].find((x) => errors[x]);
+        if (!k) return;
+        const el = document.querySelector('[name="' + k + '"]');
+        if (el) el.focus();
+      });
+      return;
+    }
+    this.ga('generate_lead', { method: 'voorstel', value: 1 });
+    this.setState({ errors: {}, submitted: true }, () => {
+      const h = document.getElementById('form-success-title');
+      if (h) h.focus();
+    });
+  };
+
+  renderVals() {
+    const st = this.state;
+    const err = st.errors;
+    const aanbod = AANBOD[st.gate ? st.gate.key : 'markt'] || AANBOD.markt;
+
+    return {
+      voordeel: this.props.voordeelPercentage ?? 'tot 30%',
+
+      menuExpanded: st.menuOpen ? 'true' : 'false',
+      menuHidden: !st.menuOpen,
+      toggleMenu: () => {
+        const open = !st.menuOpen;
+        this.setState({ menuOpen: open });
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) setTimeout(() => { const a = document.querySelector('#mobiel-menu a'); if (a) a.focus(); }, 0);
+      },
+      ddExpanded: st.dd === 'diensten' ? 'true' : 'false',
+      ddDienstenAttr: st.dd === 'diensten' ? 'true' : 'false',
+      toggleDropdown: (e) => { e.stopPropagation(); this.setState({ dd: st.dd === 'diensten' ? null : 'diensten' }); },
+      secExpanded: st.dd === 'sectoren' ? 'true' : 'false',
+      ddSectorenAttr: st.dd === 'sectoren' ? 'true' : 'false',
+      toggleSectoren: (e) => { e.stopPropagation(); this.setState({ dd: st.dd === 'sectoren' ? null : 'sectoren' }); },
+
+      openDlMarkt: () => this.openGate('markt'),
+      openDlOverstap: () => this.openGate('overstap'),
+      openDlTender: () => this.openGate('tender'),
+      openDlPiek: () => this.openGate('piek'),
+      openMagneet: () => this.openGate(this.props.paginaMagneet ?? 'markt'),
+      gateOpen: !!st.gate,
+      gateForm: !!st.gate && !st.gateDone,
+      gateDone: !!st.gate && st.gateDone,
+      gateLabelId: st.gateDone ? 'gate-done-title' : 'gate-title',
+      gateType: aanbod.type,
+      gateTitel: aanbod.titel,
+      gateSub: aanbod.sub,
+      gatePunten: aanbod.punten,
+      gateKnop: aanbod.knop,
+      gateDoneSub: aanbod.doneSub,
+      gateAantal: this.props.downloadAantal ?? '',
+      errGateMail: st.gateErr,
+      errGateMailShow: !!st.gateErr,
+      invGateMail: st.gateErr ? 'true' : 'false',
+      belForm: !st.belKlaar,
+      belKlaar: st.belKlaar,
+      belVraag: 'Wilt u weten wat dit voor uw bedrijf betekent?',
+      errBel: st.belErr,
+      errBelShow: !!st.belErr,
+      invBel: st.belErr ? 'true' : 'false',
+      onBelSubmit: this.onBelSubmit,
+      onGateSubmit: this.onGateSubmit,
+      onGateKey: this.onGateKey,
+      closeGate: this.closeGate,
+      onScrimClick: this.onScrimClick,
+      stopProp: this.stopProp,
+
+      hideForm: st.ready && st.submitted,
+      hideSuccess: !st.submitted,
+      onSubmit: this.onSubmit,
+      revalidate: this.revalidate,
+      errBedrijf: !!err.bedrijfsnaam,
+      errVerbruik: !!err.verbruik,
+      errEmailShow: !!err.email,
+      errEmail: err.email || '',
+      invBedrijf: err.bedrijfsnaam ? 'true' : 'false',
+      invVerbruik: err.verbruik ? 'true' : 'false',
+      invEmail: err.email ? 'true' : 'false'
+    };
+  }
+}
+</script>
+</body>
+</html>

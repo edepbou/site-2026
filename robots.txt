@@ -1,0 +1,5 @@
+# Energy Department — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.edepartment.nl/sitemap.xml
